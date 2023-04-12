@@ -1,0 +1,14 @@
+#ignore compiled pYthon files
+*.pyc
+
+#ignore automatic generated files
+__pycache__/
+*.egg-info/
+dist/
+build/
+*.egg
+
+#ignore pictures
+*.jpg
+*.png
+*.jpeg
