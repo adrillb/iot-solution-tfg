@@ -1,6 +1,7 @@
 import tkinter as tk
 import subprocess
 import requests
+import datetime
 
 from Controller import Controller
 from screens.HomeScreen import HomeScreen
@@ -13,7 +14,8 @@ from pyzbar.pyzbar import decode
 class Manager(tk.Tk):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.title("IOT-SOLUTION")
+        self.title("IOT-SOLUTION")        
+        # self.attributes('-fullscreen', True)
         self.controller = Controller()
         self.container = tk.Frame(self)
         self.container.pack(
@@ -41,6 +43,29 @@ class Manager(tk.Tk):
     def show_frame(self, container):
         frame = self.frames[container]
         frame.tkraise()
+
+    def new_purchase(self, articlesList):     #Register products from new purchase
+                  
+         #while 'Next product' until 'Finish'
+         # {
+         barcode = self.read_barcode()
+         print('Barcode: ', barcode)
+
+         product_name = self.get_product_name(barcode)
+         print('Product_Name: ', product_name)
+
+         #  bool registerEXP? 
+         #  {
+         expiry_date = self.get_expiry_date()
+         print('Expiry_Date: ', expiry_date)
+         # article.name = product_name
+         # article.expiry_date = expiry_date
+         #  }
+         # }
+         article = (product_name, expiry_date)
+
+         articlesList.append(article)
+         print("hola")
 
 
     def read_barcode(self):
@@ -82,11 +107,14 @@ class Manager(tk.Tk):
             #       cont += 1                                                                         
             # print("SALÍ")  
             barcodeNumber = "8480000154309"
-            self.request_openFoodFacts_API(barcodeNumber)
+            print('Voy a salir def1 b:', barcodeNumber)
+            return barcodeNumber                 
 
             # ##############################################################################################################################          
 
-    def request_openFoodFacts_API(self, productId):
+    
+    def get_product_name(self, productId):  # Get product name by barcodeNumber [Using OpenFoodFacts API]
+         
          url = 'https://world.openfoodfacts.org/api/v0/product/' + productId + '.json'
          params = {'fields': 'product_name'}
 
@@ -94,11 +122,21 @@ class Manager(tk.Tk):
 
          if response.status_code == 200:
               data = response.json()
-              print('Product_name: ', data['product']['product_name'])
+              product_name = data['product']['product_name']
+              print('Product_name: ', product_name)
+              ## Posible lógica de cambio de nombre que decida el usuario              
+              return product_name
          else:
-              print('OpenFoodFacts_API_request failed: ', response.status_code)
+              print('OpenFoodFacts_API_request failed: ' + response.status_code)
+              return "fail"
 
-            
+
+    def get_expiry_date(self):  # Register expiry date if user chooses to [Manual entry]
+         
+         date = datetime.datetime.now()
+
+         return date.day, date.month, date.year
+         
             
 
             
