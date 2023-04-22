@@ -12,3 +12,6 @@ build/
 *.jpg
 *.png
 *.jpeg
+
+#ignore specific file with commit instructions
+GitCommit

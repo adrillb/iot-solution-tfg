@@ -1,11 +1,12 @@
 import tkinter as tk
 import subprocess
 import requests
-import datetime
+# import datetime
 
 from Controller import Controller
 from screens.HomeScreen import HomeScreen
 from screens.Screen1 import Screen1
+from solutionDB.DataBase import DataBase
 from style import styles
 from PIL import Image
 
@@ -17,6 +18,7 @@ class Manager(tk.Tk):
         self.title("IOT-SOLUTION")        
         # self.attributes('-fullscreen', True)
         self.controller = Controller()
+        self.dataBase = DataBase()
         self.container = tk.Frame(self)
         self.container.pack(
             side = tk.TOP,
@@ -44,7 +46,9 @@ class Manager(tk.Tk):
         frame = self.frames[container]
         frame.tkraise()
 
-    def new_purchase(self, articlesList):     #Register products from new purchase
+###########################################################################################################################################################################################################################
+
+    def new_purchase(self, productList):     #Register products from new purchase
                   
          #while 'Next product' until 'Finish'
          # {
@@ -62,10 +66,12 @@ class Manager(tk.Tk):
          # article.expiry_date = expiry_date
          #  }
          # }
-         article = (product_name, expiry_date)
+         product = (product_name, expiry_date)
 
-         articlesList.append(article)
-         print("hola")
+         productList.append(product)
+         #_____________________________________________
+         #Insert Product on DDBB         
+         self.register_productList(productList)
 
 
     def read_barcode(self):
@@ -131,13 +137,24 @@ class Manager(tk.Tk):
               return "fail"
 
 
-    def get_expiry_date(self):  # Register expiry date if user chooses to [Manual entry]
-         
-         date = datetime.datetime.now()
+    def get_expiry_date(self):  # Register expiry date if user chooses to [Manual entry]                  
+         day = "01"
+         month = "09"
+         year = "9999"
+         return day + "/" + month + "/" + year
 
-         return date.day, date.month, date.year
-         
-            
+
+    def register_productList(self, productList):         
+         for product in productList:
+              data = self.toJson(product)
+              self.dataBase.insert_product(data)
+
+
+    def toJson(self, product):
+         return {
+              "product_name" : product[0],
+              "expiry_date" : product[1]
+         }         
 
             
             

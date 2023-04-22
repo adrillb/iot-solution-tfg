@@ -14,13 +14,13 @@ class MainMenu(tk.Frame):
 
     def init_widgets(self):
         
-        articlesList = []
+        productList = []
 
         #Botón Nueva compra
         tk.Button(
             self,
             text = "NUEVA COMPRA",
-            command = lambda : self.manager.new_purchase(articlesList), #Funionalidad
+            command = lambda : self.manager.new_purchase(productList), #Funionalidad
             **styles.STYLE,
             activebackground = styles.BACKGROUND,
             activeforeground = styles.TEXT            
