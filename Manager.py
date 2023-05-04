@@ -5,6 +5,8 @@ import requests
 
 from Controller import Controller
 from screens.HomeScreen import HomeScreen
+from screens.NewPurchaseScreen import NewPurchaseScreen
+from screens.ViewStorageScreen import ViewStorageScreen
 from screens.Screen1 import Screen1
 from solutionDB.DataBase import DataBase
 from style import styles
@@ -19,6 +21,7 @@ class Manager(tk.Tk):
         # self.attributes('-fullscreen', True)
         self.controller = Controller()
         self.dataBase = DataBase()
+     #    self.new_purchase = NewPurchase()
         self.container = tk.Frame(self)
         self.container.pack(
             side = tk.TOP,
@@ -34,7 +37,7 @@ class Manager(tk.Tk):
 
         self.frames = {}
         
-        screens =(HomeScreen, )
+        screens =(HomeScreen, NewPurchaseScreen, ViewStorageScreen,)
         for F in screens:
             frame = F(self.container, self)
             self.frames[F] = frame
@@ -48,8 +51,10 @@ class Manager(tk.Tk):
 
 ###########################################################################################################################################################################################################################
 
+     #MAIN MENU METHODS#
+
     def new_purchase(self, productList):     #Register products from new purchase
-                  
+         self.show_frame(NewPurchaseScreen)         
          #while 'Next product' until 'Finish'
          # {
          barcode = self.read_barcode()
@@ -73,6 +78,12 @@ class Manager(tk.Tk):
          #Insert Product on DDBB         
          self.register_productList(productList)
 
+    def show_stored_products(self):
+         print("def show_stored_products")
+         self.show_frame(ViewStorageScreen)
+
+         
+     #NEW_PURCHASE METHODS#
 
     def read_barcode(self):
             print("He llegado a la funcion")
