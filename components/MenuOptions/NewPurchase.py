@@ -18,7 +18,7 @@ class NewPurchase(tk.Frame):
         tk.Button(
             self,
             text = "SCAN PRODUCT",
-            command = lambda : print("PLEASE"), #Funionalidad
+            command = lambda : self.manager.scan_product(), #Funionalidad
             **styles.STYLE,
             activebackground = styles.BACKGROUND,
             activeforeground = styles.TEXT            

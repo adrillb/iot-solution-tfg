@@ -8,6 +8,7 @@ from screens.HomeScreen import HomeScreen
 from screens.NewPurchaseScreen import NewPurchaseScreen
 from screens.ViewStorageScreen import ViewStorageScreen
 from screens.Screen1 import Screen1
+from tkinter import messagebox
 from solutionDB.DataBase import DataBase
 from style import styles
 from PIL import Image
@@ -53,8 +54,18 @@ class Manager(tk.Tk):
 
      #MAIN MENU METHODS#
 
-    def new_purchase(self, productList):     #Register products from new purchase
-         self.show_frame(NewPurchaseScreen)         
+    def new_purchase(self):     #Register products from new purchase
+         self.show_frame(NewPurchaseScreen)                  
+
+    def show_stored_products(self):
+         print("def show_stored_products")
+         self.show_frame(ViewStorageScreen)
+
+         
+     #NEW_PURCHASE METHODS#
+    def scan_product(self):
+         productList = []
+
          #while 'Next product' until 'Finish'
          # {
          barcode = self.read_barcode()
@@ -77,13 +88,7 @@ class Manager(tk.Tk):
          #_____________________________________________
          #Insert Product on DDBB         
          self.register_productList(productList)
-
-    def show_stored_products(self):
-         print("def show_stored_products")
-         self.show_frame(ViewStorageScreen)
-
-         
-     #NEW_PURCHASE METHODS#
+         self.show_product_succ_registered(product_name)
 
     def read_barcode(self):
             print("He llegado a la funcion")
@@ -167,6 +172,10 @@ class Manager(tk.Tk):
               "expiry_date" : product[1]
          }         
 
+     # POP-UP MESSAGES
+
+    def show_product_succ_registered(self, product_name):
+         messagebox.showinfo("Product registered", ("\""+product_name+"\" succesfully registered"))
             
             
             
