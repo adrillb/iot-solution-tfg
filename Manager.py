@@ -63,6 +63,8 @@ class Manager(tk.Tk):
 
          
      #NEW_PURCHASE METHODS#
+    def voice_input(self):
+         print("Start voice_input method.") 
     def scan_product(self):
          productList = []
 

@@ -14,7 +14,19 @@ class NewPurchase(tk.Frame):
 
     def init_widgets(self):
         
-        #Botón Nueva compra
+        #Botón Entrada de voz
+        tk.Button(
+            self,
+            text = "VOICE INPUT PRODUCT",
+            command = lambda : self.manager.voice_input(), #Funionalidad
+            **styles.STYLE,
+            activebackground = styles.BACKGROUND,
+            activeforeground = styles.TEXT            
+        ).pack(
+            **styles.PACK_BUTTON
+        )
+
+        #Botón Escanear
         tk.Button(
             self,
             text = "SCAN PRODUCT",
@@ -26,7 +38,7 @@ class NewPurchase(tk.Frame):
             **styles.PACK_BUTTON
         )
 
-        #Botón Nueva compra
+        #Botón Finalizar
         tk.Button(
             self,
             text = "FINISH",
