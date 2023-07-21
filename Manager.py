@@ -1,9 +1,12 @@
 import tkinter as tk
 import subprocess
 import requests
+import openai
+api_key = "sk-YLFpxNGYBZwZCJSTAuhcT3blbkFJmJjmpz5CJdzagvVkWxS5"
 # import datetime
 
 from Controller import Controller
+from VoiceInput import recognize_speech as rec
 from screens.HomeScreen import HomeScreen
 from screens.NewPurchaseScreen import NewPurchaseScreen
 from screens.ViewStorageScreen import ViewStorageScreen
@@ -65,6 +68,9 @@ class Manager(tk.Tk):
      #NEW_PURCHASE METHODS#
     def voice_input(self):
          print("Start voice_input method.") 
+         product = rec()
+         print("Producto: ", product)
+
     def scan_product(self):
          productList = []
 
