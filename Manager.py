@@ -6,10 +6,11 @@ api_key = "sk-YLFpxNGYBZwZCJSTAuhcT3blbkFJmJjmpz5CJdzagvVkWxS5"
 # import datetime
 
 from Controller import Controller
-from VoiceInput import recognize_speech as rec
 from screens.HomeScreen import HomeScreen
 from screens.NewPurchaseScreen import NewPurchaseScreen
 from screens.ViewStorageScreen import ViewStorageScreen
+from screens.VoiceInputScreen import VoiceInputScreen
+#from components.VoiceInput import  as start_voiceInput
 from screens.Screen1 import Screen1
 from tkinter import messagebox
 from solutionDB.DataBase import DataBase
@@ -41,7 +42,7 @@ class Manager(tk.Tk):
 
         self.frames = {}
         
-        screens =(HomeScreen, NewPurchaseScreen, ViewStorageScreen,)
+        screens =(HomeScreen, NewPurchaseScreen, ViewStorageScreen, VoiceInputScreen,)
         for F in screens:
             frame = F(self.container, self)
             self.frames[F] = frame
@@ -67,9 +68,11 @@ class Manager(tk.Tk):
          
      #NEW_PURCHASE METHODS#
     def voice_input(self):
+         self.show_frame(VoiceInputScreen)
          print("Start voice_input method.") 
-         product = rec()
-         print("Producto: ", product)
+         #product = start_voiceInput()
+         #print("Producto: ", product)
+
 
     def scan_product(self):
          productList = []
@@ -183,10 +186,16 @@ class Manager(tk.Tk):
      # POP-UP MESSAGES
 
     def show_product_succ_registered(self, product_name):
-         messagebox.showinfo("Product registered", ("\""+product_name+"\" succesfully registered"))
-            
-            
-            
+         messagebox.showinfo("Product registered", ("\""+product_name+"\" succesfully registered"))         
+
+    def show_msg(self, msg):
+          
+          msg_label.config(text=msg)
+          ok_button.config(state=tk.NORMAL)
+
+    def close_msg():
+            msg_label.config(text="")
+            ok_button.config(state=tk.DISABLED)  
 
             #CAMARA ACTIVA
             # cap = cv2.VideoCapture(1)

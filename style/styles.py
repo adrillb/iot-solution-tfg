@@ -27,3 +27,19 @@ PACK_BUTTON = {
     "padx" : 22,
     "pady" : 11
 }
+
+PACK_BUTTON_MINI_RIGTH = {
+    "side" : tk.RIGHT,
+    "fill" : tk.BOTH,
+    "expand" : True,
+    "padx" : 22,
+    "pady" : 11
+}
+
+PACK_BUTTON_MINI_LEFT = {
+    "side" : tk.LEFT,
+    "fill" : tk.BOTH,
+    "expand" : True,
+    "padx" : 22,
+    "pady" : 11
+}
