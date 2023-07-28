@@ -14,7 +14,7 @@ class VoiceInput(tk.Frame):
         self.recognizer = sr.Recognizer()
         
         self.start_listeting_button = tk.Button(self, text = "START LISTENING", command = lambda : self.start_voiceInput(), **styles.STYLE, activebackground = styles.BACKGROUND, activeforeground = styles.TEXT)
-        self.label_listening = tk.Label(self, text="Listening...")
+        self.label_listening = tk.Label(self, text="Listening...", **styles.STYLE)
         
         self.timeout = 4
 
@@ -28,7 +28,7 @@ class VoiceInput(tk.Frame):
     
     def start_voiceInput(self):
      self.start_listeting_button.pack_forget()
-     self.label_listening.pack()
+     self.label_listening.pack(**styles.PACK_TITLE)
      # [Threading] - Ensure button is hidden and label is visible
      threading.Thread(target= self.listen_product).start() 
 
@@ -48,16 +48,18 @@ class VoiceInput(tk.Frame):
           self.listen_product()
      except sr.UnknownValueError:
           print("Didn't get that")
+          self.listen_product()
      except sr.RequestError as e:
           print("Error calling Google Search Speech Recognition; {0}".format(e))
     def show_result(self, product):
         print("AQUI TOY")
         if product != "":
               self.label_listening.pack_forget()
-              self.label_product = tk.Label(self, text=product).pack()
-              self.confirm_button = tk.Button(self, text="Confirm", command=self.confirm_product).pack()
-              self.say_again = tk.Button(self, text="Say again", command=self.start_voiceInput).pack()
+              self.label_product = tk.Label(self, text="Product: " + product).pack(**styles.PACK_TITLE)
+              self.confirm_button = tk.Button(self, text="Confirm", command=lambda:self.confirm_product(product), **styles.STYLE).pack(**styles.PACK_BUTTON_MINI_RIGTH)
+              self.say_again = tk.Button(self, text="Say again", command=self.start_voiceInput, **styles.STYLE).pack(**styles.PACK_BUTTON_MINI_LEFT)
 
 
-    def confirm_product(self):
-        print(self.label_product.cget("text"))
+    def confirm_product(self, product):
+        print(product, "hola")
+        #Registrar producto.
