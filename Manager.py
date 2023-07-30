@@ -10,6 +10,7 @@ from screens.HomeScreen import HomeScreen
 from screens.NewPurchaseScreen import NewPurchaseScreen
 from screens.ViewStorageScreen import ViewStorageScreen
 from screens.VoiceInputScreen import VoiceInputScreen
+from datetime import datetime
 #from components.VoiceInput import  as start_voiceInput
 from screens.Screen1 import Screen1
 from tkinter import messagebox
@@ -175,6 +176,7 @@ class Manager(tk.Tk):
          for product in productList:
               data = self.toJson(product)
               self.dataBase.insert_product(data)
+              print(product[0]+" insertado.")
 
 
     def toJson(self, product):
@@ -186,17 +188,8 @@ class Manager(tk.Tk):
      # POP-UP MESSAGES
 
     def show_product_succ_registered(self, product_name):
-         messagebox.showinfo("Product registered", ("\""+product_name+"\" succesfully registered"))         
-
-    def show_msg(self, msg):
-          
-          msg_label.config(text=msg)
-          ok_button.config(state=tk.NORMAL)
-
-    def close_msg():
-            msg_label.config(text="")
-            ok_button.config(state=tk.DISABLED)  
-
+         messagebox.showinfo("Product registered", ("\""+product_name+"\" succesfully registered"))        
+         
             #CAMARA ACTIVA
             # cap = cv2.VideoCapture(1)
 
@@ -226,3 +219,9 @@ class Manager(tk.Tk):
             
             # cap.release()
             
+    def isValid_date(self, date):        
+        try:
+            datetime.strptime(date, "%d-%m-%Y")
+            return True
+        except ValueError:
+            return False
