@@ -20,7 +20,7 @@ class VoiceInput(tk.Frame):
 
         self.start_listeting_button = tk.Button(self, text="SAY PRODUCT", command=lambda: self.start_voiceInput(
         ), **styles.STYLE, activebackground=styles.BACKGROUND, activeforeground=styles.TEXT)
-        self.finish_voiceInput_button = tk.Button(self, text="FINISH", command=lambda: self.finish_voiveInput(
+        self.finish_voiceInput_button = tk.Button(self, text="FINISH", command=lambda: self.finish_voiceInput(
         ), **styles.STYLE, activebackground=styles.BACKGROUND, activeforeground=styles.TEXT)
         self.label_listening = tk.Label(
             self, text="Listening...", **styles.STYLE)
@@ -112,7 +112,7 @@ class VoiceInput(tk.Frame):
             else:
                 tk.messagebox.showerror("Invalid date", "Invalid date")
         
-    def finish_voiveInput(self):
+    def finish_voiceInput(self):
         if self.productList != []:
             print(self.productList)
             self.manager.register_productList(self.productList)

@@ -13,7 +13,7 @@ class ViewStorageScreen(tk.Frame):
     def init_widgets(self):
         tk.Label(
             self,
-            text = "IOT-SOLUTION",
+            text = "STORAGE",
             justify = tk.CENTER,
             **styles.STYLE
         ).pack(

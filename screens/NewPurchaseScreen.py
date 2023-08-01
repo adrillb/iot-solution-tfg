@@ -13,7 +13,7 @@ class NewPurchaseScreen(tk.Frame):
     def init_widgets(self):
         tk.Label(
             self,
-            text = "IOT-SOLUTION",
+            text = "NEW PURCHASE",
             justify = tk.CENTER,
             **styles.STYLE
         ).pack(

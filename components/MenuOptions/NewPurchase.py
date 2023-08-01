@@ -1,6 +1,6 @@
 import tkinter as tk
 
-from Controller import Controller
+from screens.HomeScreen import HomeScreen
 from style import styles
 
 class NewPurchase(tk.Frame):
@@ -18,7 +18,19 @@ class NewPurchase(tk.Frame):
         #Botón Entrada de voz
         tk.Button(
             self,
-            text = "VOICE INPUT PRODUCT",
+            text = "VOICE INPUT PRODUCTS",
+            command = lambda : self.manager.voice_input(), #Funionalidad
+            **styles.STYLE,
+            activebackground = styles.BACKGROUND,
+            activeforeground = styles.TEXT            
+        ).pack(
+            **styles.PACK_BUTTON
+        )
+
+        #Botón Escribir
+        tk.Button(
+            self,
+            text = "TYPE PRODUCTS",
             command = lambda : self.manager.voice_input(), #Funionalidad
             **styles.STYLE,
             activebackground = styles.BACKGROUND,
@@ -30,7 +42,7 @@ class NewPurchase(tk.Frame):
         #Botón Escanear
         tk.Button(
             self,
-            text = "SCAN PRODUCT",
+            text = "SCAN PRODUCT BARCODES",
             command = lambda : self.manager.scan_product(), #Funionalidad
             **styles.STYLE,
             activebackground = styles.BACKGROUND,
@@ -43,7 +55,7 @@ class NewPurchase(tk.Frame):
         tk.Button(
             self,
             text = "FINISH",
-            command = lambda : print("PLEASE"), #Funionalidad
+            command = lambda : self.manager.show_frame(HomeScreen), #Funionalidad
             **styles.STYLE,
             activebackground = styles.BACKGROUND,
             activeforeground = styles.TEXT            
