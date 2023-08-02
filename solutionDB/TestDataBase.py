@@ -9,6 +9,10 @@ firebase_admin.initialize_app(cred, {'databaseURL': 'https://iot-solution-8d63c-
 ref = db.reference('/Database/Products')
 products = ref.get()
 print("Holu")
+for i, registro in enumerate(products.values(), start=1):
+    print(registro.get("product_name"))
+    print(registro.get("expiry_date"))
+
 
 product = {
     "product_name" : "Miel de flores",

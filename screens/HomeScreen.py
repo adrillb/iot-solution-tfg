@@ -11,15 +11,6 @@ class HomeScreen(tk.Frame):
         self.init_widgets()
 
     def init_widgets(self):
-        tk.Label(
-            self,
-            text = "IOT-SOLUTION",
-            justify = tk.CENTER,
-            **styles.STYLE
-        ).pack(
-            **styles.PACK_TITLE
-        )
-
         MainMenu(
             self,
             self.manager,            

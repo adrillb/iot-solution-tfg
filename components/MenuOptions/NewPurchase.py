@@ -13,7 +13,6 @@ class NewPurchase(tk.Frame):
         self.init_widgets()
 
     def init_widgets(self):
-        
         #BOTONES
         #Botón Entrada de voz
         tk.Button(

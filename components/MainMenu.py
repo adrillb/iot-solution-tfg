@@ -7,6 +7,7 @@ class MainMenu(tk.Frame):
     def __init__(self, parent, manager):
         super().__init__(parent)
         self.manager = manager
+        self.manager.title("HOME")
         self.configure(
             background = styles.BACKGROUND
         )
