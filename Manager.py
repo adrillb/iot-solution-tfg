@@ -2,6 +2,7 @@ import tkinter as tk
 import subprocess
 import requests
 import openai
+import logging
 api_key = "sk-YLFpxNGYBZwZCJSTAuhcT3blbkFJmJjmpz5CJdzagvVkWxS5"
 # import datetime
 
@@ -12,6 +13,7 @@ from screens.ViewStorageScreen import ViewStorageScreen
 from screens.VoiceInputScreen import VoiceInputScreen
 from datetime import datetime
 #from components.VoiceInput import  as start_voiceInput
+from components.Alerts import Alerts
 from screens.Screen1 import Screen1
 from tkinter import messagebox
 from solutionDB.DataBase import DataBase
@@ -27,6 +29,7 @@ class Manager(tk.Tk):
         # self.attributes('-fullscreen', True)
         self.controller = Controller()
         self.dataBase = DataBase()
+        self.logger = self.setUpLogger()
      #    self.new_purchase = NewPurchase()
         self.container = tk.Frame(self)
         self.container.pack(
@@ -54,6 +57,7 @@ class Manager(tk.Tk):
     def show_frame(self, container):
         frame = self.frames[container]
         frame.tkraise()
+        self.logger.info("Raise "+str(container))
 
 ###########################################################################################################################################################################################################################
 
@@ -62,18 +66,13 @@ class Manager(tk.Tk):
     def new_purchase(self):     #Register products from new purchase
          self.show_frame(NewPurchaseScreen)                  
 
-    def show_stored_products(self):
-         print("def show_stored_products")
+    def show_stored_products(self):         
          self.show_frame(ViewStorageScreen)
 
          
      #NEW_PURCHASE METHODS#
     def voice_input(self):
-         self.show_frame(VoiceInputScreen)
-         print("Start voice_input method.") 
-         #product = start_voiceInput()
-         #print("Producto: ", product)
-
+         self.show_frame(VoiceInputScreen)                  
 
     def scan_product(self):
          productList = []
@@ -148,7 +147,7 @@ class Manager(tk.Tk):
 
     
     def get_product_name(self, productId):  # Get product name by barcodeNumber [Using OpenFoodFacts API]
-         
+         self.logger.info("OpenFoodApi request productId:"+productId)
          url = 'https://world.openfoodfacts.org/api/v0/product/' + productId + '.json'
          params = {'fields': 'product_name'}
 
@@ -157,11 +156,11 @@ class Manager(tk.Tk):
          if response.status_code == 200:
               data = response.json()
               product_name = data['product']['product_name']
-              print('Product_name: ', product_name)
+              self.logger.info('Product_name: ', product_name)
               ## Posible lógica de cambio de nombre que decida el usuario              
               return product_name
          else:
-              print('OpenFoodFacts_API_request failed: ' + response.status_code)
+              self.logger.info('OpenFoodFacts_API_request failed: ' + response.status_code)
               return "fail"
 
 
@@ -176,7 +175,7 @@ class Manager(tk.Tk):
          for product in productList:
               data = self.toJson(product)
               self.dataBase.insert_product(data)
-              print(product[0]+" insertado.")
+              self.logger.info(product[0]+" - "+ product[1] +" insertado.")
 
 
     def toJson(self, product):
@@ -186,38 +185,6 @@ class Manager(tk.Tk):
          }         
 
      # POP-UP MESSAGES
-
-    def show_product_succ_registered(self, product_name):
-         messagebox.showinfo("Product registered", ("\""+product_name+"\" succesfully registered"))        
-         
-            #CAMARA ACTIVA
-            # cap = cv2.VideoCapture(1)
-
-            # if not cap.isOpened():                
-            #     print("Error al abrir la cámara")
-            #     exit()
-
-            # cap.set(3, 640)
-            # cap.set(4, 480)
-
-            # while True:           
-            #     success, frame = cap.read()
-
-            #     if not success:
-            #         print("Error al leer el fotograma")
-            #         break
-                
-            #     # barcodes = decode(frame)
-
-            #     # for barcode in barcodes:
-            #     #     print("Valor: ", barcode.data.decode("utf-8"))
-
-            #     cv2.imshow('frame', frame)
-
-            #     if cv2.waitKey(1) & 0xFF == ord('q'):
-            #         break
-            
-            # cap.release()
             
     def isValid_date(self, date):        
         try:
@@ -225,3 +192,15 @@ class Manager(tk.Tk):
             return True
         except ValueError:
             return False
+        
+    def setUpLogger(self):    
+        logger = logging.getLogger(__name__)
+        logger.setLevel(logging.INFO)
+        formatter = logging.Formatter('%(asctime)s - %(name)s - %(message)s')
+        file_handler = logging.FileHandler('app.log')
+        file_handler.setLevel(logging.INFO)
+        file_handler.setFormatter(formatter)
+        logger.addHandler(file_handler)
+        return logger
+    
+    def check_alerts(self):

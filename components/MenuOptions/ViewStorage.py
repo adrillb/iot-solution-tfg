@@ -73,6 +73,7 @@ class ViewStorage(tk.Frame):
             self.manager.dataBase.delete_product(id)
             message = "Product '" + self.productList.get(index) + "' deleted"
             print(message)
+            self.manager.logger.info(message)
             self.init_widgets()            
             
             self.productList.delete(0, tk.END)
@@ -83,9 +84,11 @@ class ViewStorage(tk.Frame):
     def delete_all_products(self):
         self.getData()
         if self.product_ids:
+            self.manager.logger.info("Deleting all products.")
             for i in self.product_ids:
                 self.manager.dataBase.delete_product(self.product_ids.get(i-1))
                 print(self.productList.get(i-1) + " deleted")
+                self.manager.logger.info(self.productList.get(i-1) + " deleted")
             self.productList.delete(0, tk.END)
             tk.messagebox.showinfo("Info", "All products have been deleted.")
             self.init_widgets()

@@ -46,6 +46,7 @@ class VoiceInput(tk.Frame):
      self.show_result(product)
 
     def listen_product(self):
+        self.manager.logger.info("Start Listening product")
         audio = "x"
         while True:
             with sr.Microphone() as source:
@@ -55,7 +56,8 @@ class VoiceInput(tk.Frame):
                     audio = self.recognizer.listen(source, timeout=self.timeout)
                     print("processing...")
                 except sr.WaitTimeoutError:
-                    print("TIMEOUT, be faster next time!")    
+                    print("TIMEOUT, be faster next time!")  
+                    self.manager.logger.info("Timeout reached")  
                     tk.messagebox.showinfo("TryAgain", "Didn't get that, repeat please.")                
             if audio != "x":
                 try:
@@ -68,13 +70,15 @@ class VoiceInput(tk.Frame):
                         break
                 except sr.UnknownValueError:
                     print("Didn't get that")
+                    self.manager.logger.info("Did not recognize audio")
                     self.listen_product()
                 except sr.RequestError as e:
                     print("Error calling Google Search Speech Recognition; {0}".format(e))
+                    self.manager.logger.info("Error calling Google Search Speech Recognition; {0}".format(e))
         return text  
 
     def show_result(self, product):
-        print("AQUI TOY")
+        self.manager.logger.info("Audio recognized: " + product)
         if product != "":
               self.label_listening.pack_forget()
               self.label_product = tk.Label(self, text="Product: " + product).pack(**styles.PACK_TITLE)
@@ -115,6 +119,8 @@ class VoiceInput(tk.Frame):
     def finish_voiceInput(self):
         if self.productList != []:
             print(self.productList)
+            self.manager.logger.info("Done registering products:")
+            self.manager.logger.info(self.productList)
             self.manager.register_productList(self.productList)
             listToShow = "Products registered: "
             for l in self.productList:

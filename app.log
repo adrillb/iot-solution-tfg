@@ -1,0 +1,56 @@
+2023-08-03 20:41:09,402 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-03 20:41:12,355 - Manager - Raise <class 'screens.NewPurchaseScreen.NewPurchaseScreen'>
+2023-08-03 20:41:13,179 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-03 20:41:13,719 - Manager - Raise <class 'screens.ViewStorageScreen.ViewStorageScreen'>
+2023-08-03 20:41:14,335 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-03 21:02:35,896 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-03 21:02:37,863 - Manager - Raise <class 'screens.NewPurchaseScreen.NewPurchaseScreen'>
+2023-08-03 21:02:39,064 - Manager - Raise <class 'screens.VoiceInputScreen.VoiceInputScreen'>
+2023-08-03 21:03:34,217 - Manager - agua - 00-00-0000 insertado.
+2023-08-03 21:03:38,158 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-03 21:03:39,563 - Manager - Raise <class 'screens.ViewStorageScreen.ViewStorageScreen'>
+2023-08-03 21:04:03,631 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-03 21:05:05,136 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-03 21:05:05,137 - Manager - Solution Starting ...
+2023-08-03 21:05:06,534 - Manager - Raise <class 'screens.NewPurchaseScreen.NewPurchaseScreen'>
+2023-08-03 21:05:07,694 - Manager - Raise <class 'screens.VoiceInputScreen.VoiceInputScreen'>
+2023-08-03 21:05:15,781 - Manager - Solution CLosing ...
+2023-08-03 21:06:49,620 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-03 21:06:49,621 - Manager - Solution Starting ...
+2023-08-03 21:06:51,247 - Manager - Raise <class 'screens.NewPurchaseScreen.NewPurchaseScreen'>
+2023-08-03 21:06:52,076 - Manager - Raise <class 'screens.VoiceInputScreen.VoiceInputScreen'>
+2023-08-03 21:07:09,463 - Manager - Solution CLosing ...
+2023-08-03 21:07:15,274 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-03 21:07:15,275 - Manager - Solution Starting ...
+2023-08-03 21:07:16,223 - Manager - Raise <class 'screens.NewPurchaseScreen.NewPurchaseScreen'>
+2023-08-03 21:07:17,048 - Manager - Raise <class 'screens.VoiceInputScreen.VoiceInputScreen'>
+2023-08-03 21:07:17,836 - Manager - Start Listening product
+2023-08-03 21:07:49,463 - Manager - Error calling Google Search Speech Recognition; recognition connection failed: [Errno -3] Temporary failure in name resolution
+2023-08-03 21:08:13,176 - Manager - Error calling Google Search Speech Recognition; recognition connection failed: [Errno -3] Temporary failure in name resolution
+2023-08-03 21:08:20,501 - Manager - Audio recognized: aceite
+2023-08-03 21:10:53,482 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-03 21:10:53,483 - Manager - Solution Starting ...
+2023-08-03 21:10:54,557 - Manager - Raise <class 'screens.NewPurchaseScreen.NewPurchaseScreen'>
+2023-08-03 21:10:55,250 - Manager - Raise <class 'screens.VoiceInputScreen.VoiceInputScreen'>
+2023-08-03 21:10:56,307 - Manager - Start Listening product
+2023-08-03 21:11:13,836 - Manager - Did not recognize audio
+2023-08-03 21:11:13,837 - Manager - Start Listening product
+2023-08-03 21:11:22,658 - Manager - Audio recognized: pino
+2023-08-03 21:11:26,917 - Manager - Done registering products:
+2023-08-03 21:11:26,918 - Manager - [('pino', '00-00-0000')]
+2023-08-03 21:12:37,204 - Manager - Done registering products:
+2023-08-03 21:12:37,205 - Manager - [('pino', '00-00-0000')]
+2023-08-03 21:13:42,296 - Manager - Done registering products:
+2023-08-03 21:13:42,297 - Manager - [('pino', '00-00-0000')]
+2023-08-03 22:56:25,196 - Manager - Done registering products:
+2023-08-03 22:56:25,196 - Manager - [('pino', '00-00-0000')]
+2023-08-03 22:57:46,499 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-03 22:57:46,499 - Manager - Solution Starting ...
+2023-08-03 22:57:47,572 - Manager - Raise <class 'screens.ViewStorageScreen.ViewStorageScreen'>
+2023-08-03 22:59:11,813 - Manager - Solution CLosing ...
+2023-08-03 23:06:07,949 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-03 23:06:07,952 - Manager - Solution Starting ...
+2023-08-03 23:06:09,670 - Manager - Raise <class 'screens.ViewStorageScreen.ViewStorageScreen'>
+2023-08-03 23:06:24,277 - Manager - Product 'agua - 00-00-0000' deleted
+2023-08-03 23:06:27,552 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-03 23:17:58,644 - Manager - Solution CLosing ...

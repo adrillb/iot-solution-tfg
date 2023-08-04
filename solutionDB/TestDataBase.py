@@ -8,7 +8,6 @@ from firebase_admin import credentials, db
 
 # ref = db.reference('/Database/Products')
 # products = ref.get()
-# print("Holu")
 # for i, (id, registro) in enumerate(products.items(), start=1):
 #     print(id)
 #     print(registro.get("product_name"))
@@ -26,7 +25,5 @@ for i in range(20):
 
 
 #products = firebase.get('/Database/Products', None)
-print("hola")
 
 #firebase.delete('/Database/Products', '-NTdtv0JU3RSDZXqVrJF')
-3

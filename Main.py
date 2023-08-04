@@ -1,9 +1,11 @@
 from Manager import Manager
 
-if __name__ == "__main__":
-    print("Solution Starting ...")
+if __name__ == "__main__":    
 
     app = Manager()
+
+    app.logger.info("Solution Starting ...")
+
     app.mainloop()
     
-    print("Solution CLosing ...")
+    app.logger.info("Solution CLosing ...")
