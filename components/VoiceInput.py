@@ -1,6 +1,5 @@
 import tkinter as tk
 import speech_recognition as sr
-import threading
 import time
 
 from Controller import Controller

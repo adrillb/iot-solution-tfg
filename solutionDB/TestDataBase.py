@@ -15,11 +15,11 @@ from firebase_admin import credentials, db
 
 firebase = firebase.FirebaseApplication("https://iot-solution-8d63c-default-rtdb.europe-west1.firebasedatabase.app", None)        
 
-for i in range(20):
-    name = "test"+str(i)
+for i in range(1):
+    name = "test"+str(i+3)
     product = {
     "product_name" : name,
-    "expiry_date" : "(23-14-49)"
+    "expiry_date" : "06-08-2023"
     }
     firebase.post('/Database/Products', product)
 

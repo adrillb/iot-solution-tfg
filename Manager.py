@@ -13,7 +13,7 @@ from screens.ViewStorageScreen import ViewStorageScreen
 from screens.VoiceInputScreen import VoiceInputScreen
 from datetime import datetime
 #from components.VoiceInput import  as start_voiceInput
-from components.Alerts import Alerts
+from solutionAlerts.Alerts import Alerts
 from screens.Screen1 import Screen1
 from tkinter import messagebox
 from solutionDB.DataBase import DataBase
@@ -29,6 +29,7 @@ class Manager(tk.Tk):
         # self.attributes('-fullscreen', True)
         self.controller = Controller()
         self.dataBase = DataBase()
+        self.alerts = Alerts(self)
         self.logger = self.setUpLogger()
      #    self.new_purchase = NewPurchase()
         self.container = tk.Frame(self)
@@ -203,4 +204,5 @@ class Manager(tk.Tk):
         logger.addHandler(file_handler)
         return logger
     
-    def check_alerts(self):
+
+                     

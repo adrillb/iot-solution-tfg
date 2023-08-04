@@ -54,3 +54,175 @@
 2023-08-03 23:06:24,277 - Manager - Product 'agua - 00-00-0000' deleted
 2023-08-03 23:06:27,552 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
 2023-08-03 23:17:58,644 - Manager - Solution CLosing ...
+2023-08-04 18:11:38,754 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 18:11:38,755 - Manager - Solution Starting ...
+2023-08-04 18:12:17,497 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 18:12:17,497 - Manager - Solution Starting ...
+2023-08-04 18:15:11,644 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 18:15:11,644 - Manager - Solution Starting ...
+2023-08-04 18:20:13,074 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 18:20:37,706 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 18:22:39,681 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 18:27:02,073 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 18:29:50,151 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 18:40:28,892 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 18:41:50,167 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 18:41:50,168 - Manager - Solution Starting ...
+2023-08-04 18:42:18,887 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 18:42:18,888 - Manager - Solution Starting ...
+2023-08-04 18:42:21,769 - Manager - Raise <class 'screens.ViewStorageScreen.ViewStorageScreen'>
+2023-08-04 18:43:25,644 - Manager - Solution CLosing ...
+2023-08-04 18:43:43,579 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 18:43:43,580 - Manager - Solution Starting ...
+2023-08-04 18:43:45,248 - Manager - Raise <class 'screens.ViewStorageScreen.ViewStorageScreen'>
+2023-08-04 18:44:22,417 - Manager - Solution CLosing ...
+2023-08-04 18:44:26,427 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 18:44:26,428 - Manager - Solution Starting ...
+2023-08-04 18:44:28,295 - Manager - Raise <class 'screens.ViewStorageScreen.ViewStorageScreen'>
+2023-08-04 18:45:20,521 - Manager - Solution CLosing ...
+2023-08-04 18:47:02,462 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 18:47:02,465 - Manager - Solution Starting ...
+2023-08-04 18:47:03,797 - Manager - Raise <class 'screens.ViewStorageScreen.ViewStorageScreen'>
+2023-08-04 18:48:02,175 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 18:48:04,257 - Manager - Raise <class 'screens.ViewStorageScreen.ViewStorageScreen'>
+2023-08-04 18:48:15,648 - Manager - Solution CLosing ...
+2023-08-04 18:49:40,294 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 18:49:40,294 - Manager - Solution Starting ...
+2023-08-04 18:49:41,681 - Manager - Raise <class 'screens.ViewStorageScreen.ViewStorageScreen'>
+2023-08-04 18:49:49,592 - Manager - Deleting all products.
+2023-08-04 18:49:50,038 - Manager - test2 - (23-14-49) deleted
+2023-08-04 18:49:50,556 - Manager - test3 - (23-14-49) deleted
+2023-08-04 18:49:51,074 - Manager - test4 - (23-14-49) deleted
+2023-08-04 18:49:51,591 - Manager - test5 - (23-14-49) deleted
+2023-08-04 18:49:51,751 - Manager - test6 - (23-14-49) deleted
+2023-08-04 18:49:51,922 - Manager - test7 - (23-14-49) deleted
+2023-08-04 18:49:52,088 - Manager - test8 - (23-14-49) deleted
+2023-08-04 18:49:52,274 - Manager - test9 - (23-14-49) deleted
+2023-08-04 18:49:52,428 - Manager - test10 - (23-14-49) deleted
+2023-08-04 18:49:52,599 - Manager - test11 - (23-14-49) deleted
+2023-08-04 18:49:52,757 - Manager - test12 - (23-14-49) deleted
+2023-08-04 18:49:52,943 - Manager - test13 - (23-14-49) deleted
+2023-08-04 18:49:53,112 - Manager - test14 - (23-14-49) deleted
+2023-08-04 18:49:53,282 - Manager - test15 - (23-14-49) deleted
+2023-08-04 18:49:53,448 - Manager - test16 - (23-14-49) deleted
+2023-08-04 18:49:53,629 - Manager - test17 - (23-14-49) deleted
+2023-08-04 18:49:53,796 - Manager - test18 - (23-14-49) deleted
+2023-08-04 18:49:53,957 - Manager - test19 - (23-14-49) deleted
+2023-08-04 18:50:12,815 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 18:50:13,904 - Manager - Solution CLosing ...
+2023-08-04 18:51:40,522 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 18:51:40,525 - Manager - Solution Starting ...
+2023-08-04 18:51:41,849 - Manager - Raise <class 'screens.ViewStorageScreen.ViewStorageScreen'>
+2023-08-04 18:51:54,639 - Manager - Solution CLosing ...
+2023-08-04 18:52:52,389 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 18:56:09,367 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 18:57:51,502 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 18:57:51,502 - Manager - Solution Starting ...
+2023-08-04 18:57:53,911 - Manager - Raise <class 'screens.ViewStorageScreen.ViewStorageScreen'>
+2023-08-04 18:57:59,163 - Manager - Deleting all products.
+2023-08-04 18:58:06,865 - Manager - test0 - (05-08-2023) deleted
+2023-08-04 18:58:07,146 - Manager - test1 - (05-08-2023) deleted
+2023-08-04 18:58:09,533 - Manager - test2 - (05-08-2023) deleted
+2023-08-04 18:58:09,896 - Manager - test3 - (05-08-2023) deleted
+2023-08-04 18:58:10,159 - Manager - test4 - (05-08-2023) deleted
+2023-08-04 18:58:10,419 - Manager - test5 - (05-08-2023) deleted
+2023-08-04 18:58:10,622 - Manager - test6 - (05-08-2023) deleted
+2023-08-04 18:58:10,854 - Manager - test7 - (05-08-2023) deleted
+2023-08-04 18:58:11,056 - Manager - test8 - (05-08-2023) deleted
+2023-08-04 18:58:11,309 - Manager - test9 - (05-08-2023) deleted
+2023-08-04 18:58:11,518 - Manager - test10 - (05-08-2023) deleted
+2023-08-04 18:58:11,723 - Manager - test11 - (05-08-2023) deleted
+2023-08-04 18:58:11,920 - Manager - test12 - (05-08-2023) deleted
+2023-08-04 18:58:12,107 - Manager - test13 - (05-08-2023) deleted
+2023-08-04 18:58:12,352 - Manager - test14 - (05-08-2023) deleted
+2023-08-04 18:58:12,608 - Manager - test15 - (05-08-2023) deleted
+2023-08-04 18:58:12,806 - Manager - test16 - (05-08-2023) deleted
+2023-08-04 18:58:13,006 - Manager - test17 - (05-08-2023) deleted
+2023-08-04 18:58:13,210 - Manager - test18 - (05-08-2023) deleted
+2023-08-04 18:58:13,414 - Manager - test19 - (05-08-2023) deleted
+2023-08-04 18:58:17,282 - Manager - Solution CLosing ...
+2023-08-04 18:59:42,764 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 19:01:04,363 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 19:13:17,283 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 19:13:17,293 - Manager - Solution Starting ...
+2023-08-04 19:13:18,704 - Manager - Raise <class 'screens.ViewStorageScreen.ViewStorageScreen'>
+2023-08-04 19:13:48,984 - Manager - Deleting all products.
+2023-08-04 19:13:49,939 - Manager - test0 - 05-08-2023 deleted
+2023-08-04 19:13:50,308 - Manager - test1 - 05-08-2023 deleted
+2023-08-04 19:13:50,721 - Manager - test2 - 05-08-2023 deleted
+2023-08-04 19:13:51,050 - Manager - test3 - 05-08-2023 deleted
+2023-08-04 19:13:51,448 - Manager - test4 - 05-08-2023 deleted
+2023-08-04 19:13:51,838 - Manager - test5 - 05-08-2023 deleted
+2023-08-04 19:13:55,839 - Manager - test6 - 05-08-2023 deleted
+2023-08-04 19:13:56,993 - Manager - test7 - 05-08-2023 deleted
+2023-08-04 19:13:58,571 - Manager - test8 - 05-08-2023 deleted
+2023-08-04 19:14:06,076 - Manager - test9 - 05-08-2023 deleted
+2023-08-04 19:14:06,344 - Manager - test10 - 05-08-2023 deleted
+2023-08-04 19:14:06,652 - Manager - test11 - 05-08-2023 deleted
+2023-08-04 19:14:06,861 - Manager - test12 - 05-08-2023 deleted
+2023-08-04 19:14:07,071 - Manager - test13 - 05-08-2023 deleted
+2023-08-04 19:14:07,283 - Manager - test14 - 05-08-2023 deleted
+2023-08-04 19:14:07,498 - Manager - test15 - 05-08-2023 deleted
+2023-08-04 19:14:07,682 - Manager - test16 - 05-08-2023 deleted
+2023-08-04 19:14:07,868 - Manager - test17 - 05-08-2023 deleted
+2023-08-04 19:14:08,074 - Manager - test18 - 05-08-2023 deleted
+2023-08-04 19:14:08,283 - Manager - test19 - 05-08-2023 deleted
+2023-08-04 19:14:12,001 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 19:14:16,218 - Manager - Solution CLosing ...
+2023-08-04 19:16:45,473 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 19:16:45,474 - Manager - Solution Starting ...
+2023-08-04 19:17:59,588 - Manager - Solution CLosing ...
+2023-08-04 19:18:18,765 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 19:19:23,409 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 19:22:08,752 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 19:23:26,966 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 19:25:25,779 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 19:26:09,624 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 19:26:09,627 - Manager - Solution Starting ...
+2023-08-04 19:27:21,807 - Manager - Solution CLosing ...
+2023-08-04 19:27:35,309 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 19:27:35,309 - Manager - Solution Starting ...
+2023-08-04 19:27:44,348 - Manager - Raise <class 'screens.ViewStorageScreen.ViewStorageScreen'>
+2023-08-04 19:27:59,885 - Manager - Deleting all products.
+2023-08-04 19:28:00,356 - Manager - test0 - 02-08-2023 deleted
+2023-08-04 19:28:00,533 - Manager - test1 - 02-08-2023 deleted
+2023-08-04 19:28:00,762 - Manager - test2 - 02-08-2023 deleted
+2023-08-04 19:28:00,966 - Manager - test3 - 02-08-2023 deleted
+2023-08-04 19:28:01,176 - Manager - test4 - 02-08-2023 deleted
+2023-08-04 19:28:01,483 - Manager - test5 - 05-08-2023 deleted
+2023-08-04 19:28:01,919 - Manager - test6 - 05-08-2023 deleted
+2023-08-04 19:28:02,487 - Manager - test7 - 05-08-2023 deleted
+2023-08-04 19:28:02,750 - Manager - test8 - 05-08-2023 deleted
+2023-08-04 19:28:02,985 - Manager - test9 - 05-08-2023 deleted
+2023-08-04 19:28:03,171 - Manager - test10 - 06-08-2023 deleted
+2023-08-04 19:28:03,399 - Manager - test11 - 06-08-2023 deleted
+2023-08-04 19:28:03,658 - Manager - test12 - 06-08-2023 deleted
+2023-08-04 19:28:03,918 - Manager - test13 - 06-08-2023 deleted
+2023-08-04 19:28:04,386 - Manager - test14 - 06-08-2023 deleted
+2023-08-04 19:28:07,561 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 19:28:08,544 - Manager - Solution CLosing ...
+2023-08-04 19:44:12,245 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 19:47:57,256 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 19:47:57,256 - Manager - Solution Starting ...
+2023-08-04 19:48:14,761 - Manager - Raise <class 'screens.ViewStorageScreen.ViewStorageScreen'>
+2023-08-04 19:48:28,581 - Manager - Product 'test1 - 05-08-2023' deleted
+2023-08-04 19:48:32,076 - Manager - Deleting all products.
+2023-08-04 19:48:32,498 - Manager - test0 - 02-08-2023 deleted
+2023-08-04 19:48:33,856 - Manager - test2 - 06-08-2023 deleted
+2023-08-04 19:48:34,420 - Manager -  deleted
+2023-08-04 19:48:37,699 - Manager - Solution CLosing ...
+2023-08-04 20:03:09,277 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 20:04:26,261 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 20:05:51,242 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 20:16:25,627 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 20:18:00,662 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 20:22:06,602 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 20:28:07,798 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 20:30:15,786 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 20:31:28,961 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 20:34:57,510 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 20:37:45,617 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 20:44:51,059 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 20:50:57,635 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 20:54:37,670 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
+2023-08-04 20:56:48,789 - Manager - Raise <class 'screens.HomeScreen.HomeScreen'>
