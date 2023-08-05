@@ -29,7 +29,8 @@ class Alerts:
                     username = email.split('@')[0]
                     body = "Hey " + username + ",\n\n" + message
                     msg.attach(MIMEText(body, 'plain'))
-                    server.sendmail(self.sender_email, email, msg.as_string()) 
+                    #server.sendmail(self.sender_email, email, msg.as_string())
+                    body = ""
                     print("Correo de alerta  enviado a "+email)       
                     #self.manager.loger.showinfo("Correo de alerta enviado a "+email)                                    
                         

@@ -1,4 +1,4 @@
-#ignore compiled pYthon files
+#ignore compiled python files
 *.pyc
 
 #ignore automatic generated files
@@ -12,6 +12,13 @@ build/
 *.jpg
 *.png
 *.jpeg
+
+#ignore logs
+app.log
+
+#ignore credentials
+userSettings.json
+FirebaseCredentials/
 
 #ignore specific file with commit instructions
 GitCommit
