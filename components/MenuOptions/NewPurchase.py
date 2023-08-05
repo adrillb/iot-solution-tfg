@@ -30,7 +30,7 @@ class NewPurchase(tk.Frame):
         tk.Button(
             self,
             text = "TYPE PRODUCTS",
-            command = lambda : self.manager.voice_input(), #Funionalidad
+            command = lambda : self.manager.type_input(), #Funionalidad
             **styles.STYLE,
             activebackground = styles.BACKGROUND,
             activeforeground = styles.TEXT            

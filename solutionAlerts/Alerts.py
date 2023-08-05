@@ -15,27 +15,27 @@ class Alerts:
         self.smtp_server = "smtp-mail.outlook.com"
         self.smtp_port = 587
 
-    def send_email(self, subject, message):
-        msg = MIMEMultipart()
-        msg['From'] = self.sender_email        
-        msg['Subject'] = subject        
+    def send_email(self, subject, message):     
 
         try:
             with smtplib.SMTP(self.smtp_server, self.smtp_port) as server:
                 server.starttls()
                 server.login(self.sender_email, self.sender_password)   
-                for email in self.receiver_email:  
-                    msg['To'] = email                  
+                for email in self.receiver_email:
                     username = email.split('@')[0]
                     body = "Hey " + username + ",\n\n" + message
+                    msg = MIMEMultipart()
+                    msg['From'] = self.sender_email        
+                    msg['Subject'] = subject     
+                    msg['To'] = email                  
                     msg.attach(MIMEText(body, 'plain'))
-                    #server.sendmail(self.sender_email, email, msg.as_string())
-                    body = ""
-                    print("Correo de alerta  enviado a "+email)       
-                    #self.manager.loger.showinfo("Correo de alerta enviado a "+email)                                    
+                    server.sendmail(self.sender_email, email, msg.as_string())
+                    print("Correo enviado a " + email +" whit Subject: " + subject + " and Body: " + body)       
+                    self.manager.loger.showinfo("Correo enviado a " + email +" whit Subject: " + subject + " and Body: " + body)                                    
                         
         except Exception as ex:
-            #self.manager.logger.showinfo("Error al enviar correo: " + ex)
+            self.manager.logger.showinfo("Error al enviar correo: " + ex)
+            self.manager.logger.showinfo(ex)
             print("Error al enviar correo: ")
             print(ex)
 
@@ -57,7 +57,7 @@ class Alerts:
                         if dif < 0:                            
                             message += "\n\n\t- " + product_name + " expired on " + product_date + ". Consider getting it out of the fridge/pantry or throwing it away."                            
                         elif dif == 0:
-                            message += "\n\n\t- " + product_name + " expires today " + product_date + "! Hurry, go use it!."  
+                            message += "\n\n\t- " + product_name + " expires today " + product_date + "! Hurry, go use it!"  
                         elif dif == 1:
                             message += "\n\n\t- " + product_name + " expires tomorrow " + product_date + ". Don't let it go to waste!"                          
                         else:
@@ -68,8 +68,15 @@ class Alerts:
                 message += "\n\n\nThanks for using our services!\nHave a pleasant day,\nPapito dulse." 
                 body = intro + message
                 self.send_email(subject, body)
-                # self.manager.logger.showinfo("Email body: " + message)
-                print("Email body: " + body)
+                self.manager.logger.showinfo("Trying to send email alerts")                
+        
+        #Confirm this method has been executed
+        subject = "Checked Alerts"
+        message = "No alerts were detected for today. "+current_date
+        if alert:
+            message = "Alerts were detected for today: ["+current_date+"]"+"\n\n"+body
+        self.send_email(subject, message)
+
 
 
 

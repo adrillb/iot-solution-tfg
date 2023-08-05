@@ -11,10 +11,11 @@ from screens.HomeScreen import HomeScreen
 from screens.NewPurchaseScreen import NewPurchaseScreen
 from screens.ViewStorageScreen import ViewStorageScreen
 from screens.VoiceInputScreen import VoiceInputScreen
+from screens.ScanInputScreen import ScanInputScreen
+from screens.TypeInputScreen import TypeInputScreen
 from datetime import datetime
 #from components.VoiceInput import  as start_voiceInput
 from solutionAlerts.Alerts import Alerts
-from screens.Screen1 import Screen1
 from tkinter import messagebox
 from solutionDB.DataBase import DataBase
 from style import styles
@@ -47,7 +48,7 @@ class Manager(tk.Tk):
 
         self.frames = {}
         
-        screens =(HomeScreen, NewPurchaseScreen, ViewStorageScreen, VoiceInputScreen,)
+        screens =(HomeScreen, NewPurchaseScreen, ViewStorageScreen, VoiceInputScreen, ScanInputScreen, TypeInputScreen,)
         for F in screens:
             frame = F(self.container, self)
             self.frames[F] = frame
@@ -75,94 +76,11 @@ class Manager(tk.Tk):
     def voice_input(self):
          self.show_frame(VoiceInputScreen)                  
 
+    def type_input(self):
+         self.show_frame(TypeInputScreen)
+
     def scan_product(self):
-         productList = []
-
-         #while 'Next product' until 'Finish'
-         # {
-         barcode = self.read_barcode()
-         print('Barcode: ', barcode)
-
-         product_name = self.get_product_name(barcode)
-         print('Product_Name: ', product_name)
-
-         #  bool registerEXP? 
-         #  {
-         expiry_date = self.get_expiry_date()
-         print('Expiry_Date: ', expiry_date)
-         # article.name = product_name
-         # article.expiry_date = expiry_date
-         #  }
-         # }
-         product = (product_name, expiry_date)
-
-         productList.append(product)
-         #_____________________________________________
-         #Insert Product on DDBB         
-         self.register_productList(productList)
-         self.show_product_succ_registered(product_name)
-
-    def read_barcode(self):
-            print("He llegado a la funcion")
-            # ##############################################################################################################################
-            ###TOMAR FOTO Y LEER CODIGO DE BARRAS
-
-            # process = subprocess.Popen(['libcamera-still', '-f', '-t', '2000', '-o', 'barcode.png'])
-            # process.wait()
-            # with open('barcode.png', 'rb') as img:
-            #     barcodeImage = img.read()
-            # barcode = decode(barcodeImage)
-            # barcodeImg = Image.open("REAL")
-            # print(barcodeImg)
-                                 
-            # barcode = decode(Image.open("/home/adrillb/Downloads/barcode.png"))            
-             
-            # if len(barcode) != 0:
-            #     print("Tipo: ", barcode[0].type)
-            #     print("Data: ", barcode[0].data.decode())                       
-            #CON FOTO
-            
-            # keepScanning = True
-            # cont = 0
-            # while keepScanning:        
-                
-            #       process = subprocess.Popen(['libcamera-still', '-f', '-t', '2000', '-o', 'barcode.png'])
-            #       process.wait()
-            #       with open('barcode.png', 'b') as img:
-            #            barcodeImage = img.read()
-            #       barcode = decode(Image.open(barcodeImage))                    
-
-            #       if len(barcode) != 0:
-            #            print("Tipo: ", barcode[0].type)
-            #            print("Data: ", barcode[0].data.decode('utf-8'))                       
-            #            keepScanning = False
-            #       if cont > 10:
-            #            keepScanning = False
-            #       cont += 1                                                                         
-            # print("SALÍ")  
-            barcodeNumber = "8480000154309"
-            print('Voy a salir def1 b:', barcodeNumber)
-            return barcodeNumber                 
-
-            # ##############################################################################################################################          
-
-    
-    def get_product_name(self, productId):  # Get product name by barcodeNumber [Using OpenFoodFacts API]
-         self.logger.info("OpenFoodApi request productId:"+productId)
-         url = 'https://world.openfoodfacts.org/api/v0/product/' + productId + '.json'
-         params = {'fields': 'product_name'}
-
-         response = requests.get(url, params=params)
-
-         if response.status_code == 200:
-              data = response.json()
-              product_name = data['product']['product_name']
-              self.logger.info('Product_name: ', product_name)
-              ## Posible lógica de cambio de nombre que decida el usuario              
-              return product_name
-         else:
-              self.logger.info('OpenFoodFacts_API_request failed: ' + response.status_code)
-              return "fail"
+         self.show_frame(ScanInputScreen)                                   
 
 
     def get_expiry_date(self):  # Register expiry date if user chooses to [Manual entry]                  
@@ -183,9 +101,7 @@ class Manager(tk.Tk):
          return {
               "product_name" : product[0],
               "expiry_date" : product[1]
-         }         
-
-     # POP-UP MESSAGES
+         }              
             
     def isValid_date(self, date):        
         try:

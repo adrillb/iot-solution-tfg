@@ -39,8 +39,7 @@ class VoiceInput(tk.Frame):
     def start_voiceInput(self):
      self.hide_frame_widgets()
      self.label_listening.pack(**styles.PACK_TITLE)
-     self.update()
-     #time.sleep(0.5)
+     self.update()     
      product = self.listen_product()
      self.show_result(product)
 
@@ -95,11 +94,14 @@ class VoiceInput(tk.Frame):
             #ask for date
             print("preguntamos fecha")
             expiry_date = self.ask_date()
-
-        product = (product_name, expiry_date)
-        productList.append(product)
-        self.productList.append(product)
-        
+        if hasDate:            
+            print("preguntamos fecha")
+            expiry_date = self.ask_date()
+        if expiry_date is not None:                                
+            product = (product_name, expiry_date)
+            productList.append(product)
+            self.productList.append(product)
+            
         self.hide_frame_widgets()
         self.init_widgets()
 
@@ -113,7 +115,7 @@ class VoiceInput(tk.Frame):
             if self.manager.isValid_date(date):
                 return date
             else:
-                tk.messagebox.showerror("Invalid date", "Invalid date")
+                tk.messagebox.showerror("Invalid date", "Invalid date, remember format must be (DD-MM-YYYY)")
         
     def finish_voiceInput(self):
         if self.productList != []:

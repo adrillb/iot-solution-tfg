@@ -45,7 +45,10 @@ class ViewStorage(tk.Frame):
         if data:
             for i, (id, record) in enumerate(data.items(), start=1):
                 self.product_ids[i] = id
-                element = record.get("product_name") + " - " + record.get("expiry_date")
+                date = record.get("expiry_date")
+                if date == "00-00-0000":
+                    date = "No Expiry Date"
+                element = record.get("product_name") + " - " + date
                 self.productList.insert(tk.END, element)  
 
     

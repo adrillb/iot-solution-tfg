@@ -18,7 +18,7 @@ class MainMenu(tk.Frame):
         #Botón Nueva compra
         tk.Button(
             self,
-            text = "NUEVA COMPRA",
+            text = "NEW PURCHASE",
             command = lambda : self.manager.new_purchase(), #Funionalidad
             **styles.STYLE,
             activebackground = styles.BACKGROUND,
