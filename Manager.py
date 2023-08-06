@@ -3,7 +3,7 @@ import subprocess
 import requests
 import openai
 import logging
-api_key = "sk-YLFpxNGYBZwZCJSTAuhcT3blbkFJmJjmpz5CJdzagvVkWxS5"
+
 # import datetime
 
 from Controller import Controller
@@ -13,6 +13,7 @@ from screens.ViewStorageScreen import ViewStorageScreen
 from screens.VoiceInputScreen import VoiceInputScreen
 from screens.ScanInputScreen import ScanInputScreen
 from screens.TypeInputScreen import TypeInputScreen
+from screens.RecipeIdeasScreen import RecipeIdeasScreen
 from datetime import datetime
 #from components.VoiceInput import  as start_voiceInput
 from solutionAlerts.Alerts import Alerts
@@ -48,7 +49,7 @@ class Manager(tk.Tk):
 
         self.frames = {}
         
-        screens =(HomeScreen, NewPurchaseScreen, ViewStorageScreen, VoiceInputScreen, ScanInputScreen, TypeInputScreen,)
+        screens =(HomeScreen, NewPurchaseScreen, ViewStorageScreen, VoiceInputScreen, ScanInputScreen, TypeInputScreen, RecipeIdeasScreen,)
         for F in screens:
             frame = F(self.container, self)
             self.frames[F] = frame
@@ -70,6 +71,9 @@ class Manager(tk.Tk):
 
     def show_stored_products(self):         
          self.show_frame(ViewStorageScreen)
+     
+    def show_recipe_ideas(self):         
+         self.show_frame(RecipeIdeasScreen)
 
          
      #NEW_PURCHASE METHODS#
@@ -80,14 +84,7 @@ class Manager(tk.Tk):
          self.show_frame(TypeInputScreen)
 
     def scan_product(self):
-         self.show_frame(ScanInputScreen)                                   
-
-
-    def get_expiry_date(self):  # Register expiry date if user chooses to [Manual entry]                  
-         day = "01"
-         month = "09"
-         year = "9999"
-         return day + "/" + month + "/" + year
+         self.show_frame(ScanInputScreen)                                       
 
 
     def register_productList(self, productList):         

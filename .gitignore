@@ -17,8 +17,11 @@ build/
 app.log
 
 #ignore credentials
+#Email Log info
 userSettings.json
+#DataBase access
 FirebaseCredentials/
-
+#chatGPT api key
+API-KEY.json 	
 #ignore specific file with commit instructions
 GitCommit

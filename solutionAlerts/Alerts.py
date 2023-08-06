@@ -75,47 +75,7 @@ class Alerts:
         message = "No alerts were detected for today. "+current_date
         if alert:
             message = "Alerts were detected for today: ["+current_date+"]"+"\n\n"+body
-        self.send_email(subject, message)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                        
+        self.send_email(subject, message)               
     
     def getUserSettings(self): 
         with open('/home/adrillb/Desktop/TFG/Python/iot-solution/solutionAlerts/userSettings.json', 'r') as json_file:

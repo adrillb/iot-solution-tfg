@@ -43,17 +43,12 @@ class TypeInput(tk.Frame):
         )
 
     def start_typeInput(self):
+        self.manager.logger.info("Start Typing product")   
         self.hide_frame_widgets()  
         self.label_insert_product.pack()  
         self.product_entry.pack()
         self.accept_productName_button.pack(**styles.PACK_BUTTON_MINI_RIGTH)
-        self.cancel_button.pack(**styles.PACK_BUTTON_MINI_LEFT)
-
-        # product = self.type_product()
-        # self.show_result(product)
-     
-    def type_product(self):
-        self.manager.logger.info("Start Typing product")        
+        self.cancel_button.pack(**styles.PACK_BUTTON_MINI_LEFT)             
           
     def accept_type(self):
         productName = self.product_entry.get()
@@ -102,7 +97,7 @@ class TypeInput(tk.Frame):
             if self.manager.isValid_date(date):
                 return date
             else:
-                tk.messagebox.showerror("Invalid date", "Invalid date, format must be (DD-MM-YYYY)")
+                tk.messagebox.showerror("Invalid date", "Invalid date, remember format must be (DD-MM-YYYY)")
         
     def finish_voiceInput(self):
         if self.productList != []:

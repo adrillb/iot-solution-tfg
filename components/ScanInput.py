@@ -15,10 +15,10 @@ class ScanInput(tk.Frame):
 
         self.productList = []
 
-        self.start_scanning_button = tk.Button(self, text="SCAN PRODUCT", command=lambda: self.start_scanInput(
-        ), **styles.STYLE, activebackground=styles.BACKGROUND, activeforeground=styles.TEXT)
-        self.finish_scanInput_button = tk.Button(self, text="FINISH", command=lambda: self.finish_scanInput(
-        ), **styles.STYLE, activebackground=styles.BACKGROUND, activeforeground=styles.TEXT)
+        self.start_scanning_button = tk.Button(self, text="SCAN PRODUCT", command=lambda: self.start_scanInput()
+        ,**styles.STYLE, activebackground=styles.BACKGROUND, activeforeground=styles.TEXT)
+        self.finish_scanInput_button = tk.Button(self, text="FINISH", command=lambda: self.finish_scanInput()
+        ,**styles.STYLE, activebackground=styles.BACKGROUND, activeforeground=styles.TEXT)
         self.label_scanning = tk.Label(
             self, text="Scanning...", **styles.STYLE)
         self.insert_date = tk.Label(self, text="Insert Date:", **styles.STYLE)
@@ -27,6 +27,7 @@ class ScanInput(tk.Frame):
         self.init_widgets()
 
     def init_widgets(self):
+        self.hide_frame_widgets()
         self.start_scanning_button.pack(
             **styles.PACK_BUTTON
         )
@@ -36,21 +37,23 @@ class ScanInput(tk.Frame):
 
     def start_scanInput(self):
      self.hide_frame_widgets()
-     self.label_scanning.pack(**styles.PACK_TITLE)
+     self.label_scanning.pack(**styles.PACK_TITLE)     
      self.update()
-     #time.sleep(0.5)
      product = self.scan_product()
-     self.show_result(product)
+     #self.show_result(product)
 
     def scan_product(self):
         self.manager.logger.info("Start Scanning product")
+        barcode  = 0
+        # while True:
 
+
+        
         #productList = []
 
         # while 'Next product' until 'Finish'
         # {
-        #  barcode = self.read_barcode()
-        #  print('Barcode: ', barcode)
+        
 
         #  product_name = self.get_product_name(barcode)
         #  print('Product_Name: ', product_name)

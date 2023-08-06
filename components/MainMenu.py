@@ -43,7 +43,7 @@ class MainMenu(tk.Frame):
         tk.Button(
             self,
             text = "RECIPE IDEAS",
-            command = lambda : print("RECIPE IDEAS"), #Funionalidad
+            command = lambda : self.manager.show_recipe_ideas(), #Funionalidad
             **styles.STYLE,
             activebackground = styles.BACKGROUND,
             activeforeground = styles.TEXT            
