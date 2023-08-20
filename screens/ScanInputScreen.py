@@ -13,7 +13,7 @@ class ScanInputScreen(tk.Frame):
     def init_widgets(self):
         tk.Label(
             self,
-            text = "IOT-SOLUTION",
+            text = "SCAN INPUT",
             justify = tk.CENTER,
             **styles.STYLE_TITLE_NP
         ).pack(

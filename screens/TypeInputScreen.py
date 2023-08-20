@@ -13,7 +13,7 @@ class TypeInputScreen(tk.Frame):
     def init_widgets(self):
         tk.Label(
             self,
-            text = "IOT-SOLUTION",
+            text = "TYPE INPUT",
             justify = tk.CENTER,
             **styles.STYLE_TITLE_NP
         ).pack(

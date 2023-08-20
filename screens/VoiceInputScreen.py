@@ -13,7 +13,7 @@ class VoiceInputScreen(tk.Frame):
     def init_widgets(self):
         tk.Label(
             self,
-            text = "IOT-SOLUTION",
+            text = "VOICE INPUT",
             justify = tk.CENTER,
             **styles.STYLE_TITLE_NP
         ).pack(
