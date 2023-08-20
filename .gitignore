@@ -22,6 +22,6 @@ userSettings.json
 #DataBase access
 FirebaseCredentials/
 #chatGPT api key
-API-KEY.json 	
+IARequest/API-KEY.json 	
 #ignore specific file with commit instructions
 GitCommit

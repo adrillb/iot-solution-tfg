@@ -15,22 +15,22 @@ class ViewStorage(tk.Frame):
 
         self.product_ids = {}
         
-        self.productList = tk.Listbox(self, **styles.STYLE)        
+        self.productList = tk.Listbox(self, **styles.STYLE_ST)        
 
         self.viewProducts_button = tk.Button(self, text = "VIEW PRODUCTS", command = lambda : self.show_products()
-                                        ,**styles.STYLE, activebackground = styles.BACKGROUND, activeforeground = styles.TEXT)
+                                        ,**styles.STYLE_ST, activebackground = styles.BACKGROUND, activeforeground = styles.TEXT)
         self.clearData_button = tk.Button(self, text = "CLEAR DATA", command = lambda : self.security_question()
-                                        ,**styles.STYLE, activebackground = styles.BACKGROUND, activeforeground = styles.TEXT)
+                                        ,**styles.STYLE_ST, activebackground = styles.BACKGROUND, activeforeground = styles.TEXT)
         self.back_button = tk.Button(self, text = "BACK", command = lambda : self.manager.show_frame(HomeScreen)
-                                        ,**styles.STYLE, activebackground = styles.BACKGROUND, activeforeground = styles.TEXT)
+                                        ,**styles.STYLE_ST, activebackground = styles.BACKGROUND, activeforeground = styles.TEXT)
         
         self.inside_back_button = tk.Button(self, text = "<", command = lambda : self.init_widgets()
-                                        ,**styles.STYLE, activebackground = styles.BACKGROUND, activeforeground = styles.TEXT)
+                                        ,**styles.STYLE_ST, activebackground = styles.BACKGROUND, activeforeground = styles.TEXT)
         self.delete_button = tk.Button(self, text="X", command=lambda : self.delete_product(self.getId())
-                                        ,**styles.STYLE, activebackground = styles.BACKGROUND, activeforeground = styles.TEXT)
+                                        ,**styles.STYLE_ST, activebackground = styles.BACKGROUND, activeforeground = styles.TEXT)
 
         self.confirmClearData_button = tk.Button(self, text="Confirm and delete ALL data", command=lambda : self.delete_all_products()
-                                        ,**styles.STYLE, activebackground = styles.BACKGROUND, activeforeground = styles.TEXT)        
+                                        ,**styles.STYLE_ST, activebackground = styles.BACKGROUND, activeforeground = styles.TEXT)        
         
         self.init_widgets()
 

@@ -16,12 +16,12 @@ class ScanInput(tk.Frame):
         self.productList = []
 
         self.start_scanning_button = tk.Button(self, text="SCAN PRODUCT", command=lambda: self.start_scanInput()
-        ,**styles.STYLE, activebackground=styles.BACKGROUND, activeforeground=styles.TEXT)
+        ,**styles.STYLE_NP, activebackground=styles.BACKGROUND, activeforeground=styles.TEXT)
         self.finish_scanInput_button = tk.Button(self, text="FINISH", command=lambda: self.finish_scanInput()
-        ,**styles.STYLE, activebackground=styles.BACKGROUND, activeforeground=styles.TEXT)
+        ,**styles.STYLE_NP, activebackground=styles.BACKGROUND, activeforeground=styles.TEXT)
         self.label_scanning = tk.Label(
-            self, text="Scanning...", **styles.STYLE)
-        self.insert_date = tk.Label(self, text="Insert Date:", **styles.STYLE)
+            self, text="Scanning...", **styles.STYLE_NP)
+        self.insert_date = tk.Label(self, text="Insert Date:", **styles.STYLE_NP)
         self.timeout = 5
 
         self.init_widgets()
@@ -175,9 +175,9 @@ class ScanInput(tk.Frame):
         if product != "":
               self.label_listening.pack_forget()
               self.label_product = tk.Label(self, text="Product: " + product).pack(**styles.PACK_TITLE)
-              self.confirm_button = tk.Button(self, text="Confirm", command=lambda:self.confirm_product(product, False), **styles.STYLE).pack(**styles.PACK_BUTTON)
-              self.say_again_button = tk.Button(self, text="Say again", command=self.start_voiceInput, **styles.STYLE).pack(**styles.PACK_BUTTON_MINI_LEFT)
-              self.with_date_button = tk.Button(self, text="Add Expiry Date", command=lambda:self.confirm_product(product, True), **styles.STYLE).pack(**styles.PACK_BUTTON_MINI_RIGTH)
+              self.confirm_button = tk.Button(self, text="Confirm", command=lambda:self.confirm_product(product, False), **styles.STYLE_NP).pack(**styles.PACK_BUTTON)
+              self.say_again_button = tk.Button(self, text="Say again", command=self.start_voiceInput, **styles.STYLE_NP).pack(**styles.PACK_BUTTON_MINI_LEFT)
+              self.with_date_button = tk.Button(self, text="Add Expiry Date", command=lambda:self.confirm_product(product, True), **styles.STYLE_NP).pack(**styles.PACK_BUTTON_MINI_RIGTH)
 
 
     def confirm_product(self, product_name, hasDate):

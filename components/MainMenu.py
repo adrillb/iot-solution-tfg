@@ -1,6 +1,6 @@
 import tkinter as tk
+import sys
 
-from Controller import Controller
 from style import styles
 
 class MainMenu(tk.Frame):
@@ -9,6 +9,7 @@ class MainMenu(tk.Frame):
         self.manager = manager
         self.manager.title("HOME")
         self.configure(
+            cursor = styles.CURSOR,
             background = styles.BACKGROUND
         )
         self.init_widgets()
@@ -51,3 +52,13 @@ class MainMenu(tk.Frame):
             **styles.PACK_BUTTON
         )
 
+        tk.Button(
+            self,
+            text = "EXIT",            
+            command = lambda : sys.exit(0), #Funionalidad
+            **styles.STYLE,
+            activebackground = styles.BACKGROUND,
+            activeforeground = styles.TEXT            
+        ).pack(
+            **styles.PACK_BUTTON
+        )

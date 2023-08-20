@@ -10,7 +10,16 @@ class RecipeIdeasScreen(tk.Frame):
         self.configure(background = styles.BACKGROUND)
         self.init_widgets()
 
-    def init_widgets(self):      
+    def init_widgets(self):   
+        tk.Label(
+            self,
+            text = "RECIPE IDEAS",
+            justify = tk.CENTER,
+            **styles.STYLE_TITLE_RI
+        ).pack(
+            **styles.PACK_TITLE
+        )
+
         RecipeIdeas(
             self,
             self.manager,            

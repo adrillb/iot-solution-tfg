@@ -15,7 +15,7 @@ class TypeInputScreen(tk.Frame):
             self,
             text = "IOT-SOLUTION",
             justify = tk.CENTER,
-            **styles.STYLE
+            **styles.STYLE_TITLE_NP
         ).pack(
             **styles.PACK_TITLE
         )

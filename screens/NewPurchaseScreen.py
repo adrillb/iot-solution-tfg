@@ -15,7 +15,7 @@ class NewPurchaseScreen(tk.Frame):
             self,
             text = "NEW PURCHASE",
             justify = tk.CENTER,
-            **styles.STYLE
+            **styles.STYLE_TITLE_NP
         ).pack(
             **styles.PACK_TITLE
         )

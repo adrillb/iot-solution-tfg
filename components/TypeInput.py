@@ -14,19 +14,19 @@ class TypeInput(tk.Frame):
         self.productList = []
 
         self.start_typing_button = tk.Button(self, text="TYPE PRODUCT", command=lambda: self.start_typeInput()
-        ,**styles.STYLE, activebackground=styles.BACKGROUND, activeforeground=styles.TEXT)
+        ,**styles.STYLE_NP, activebackground=styles.BACKGROUND, activeforeground=styles.TEXT)
         self.finish_typeInput_button = tk.Button(self, text="FINISH", command=lambda: self.finish_voiceInput()
-        ,**styles.STYLE, activebackground=styles.BACKGROUND, activeforeground=styles.TEXT) 
+        ,**styles.STYLE_NP, activebackground=styles.BACKGROUND, activeforeground=styles.TEXT) 
 
-        self.label_insert_product = tk.Label(self, text="Insert Product:", **styles.STYLE) 
-        self.label_insert_date = tk.Label(self, text="Insert Date:", **styles.STYLE)
+        self.label_insert_product = tk.Label(self, text="Insert Product:", **styles.STYLE_NP) 
+        self.label_insert_date = tk.Label(self, text="Insert Date:", **styles.STYLE_NP)
 
         self.accept_productName_button = tk.Button(self, text="ACCEPT", command=lambda: self.accept_type()
-        ,**styles.STYLE, activebackground=styles.BACKGROUND, activeforeground=styles.TEXT)                
+        ,**styles.STYLE_NP, activebackground=styles.BACKGROUND, activeforeground=styles.TEXT)                
         self.cancel_button = tk.Button(self, text="CANCEL", command=lambda: self.cancel_type()
-        ,**styles.STYLE, activebackground=styles.BACKGROUND, activeforeground=styles.TEXT)                
+        ,**styles.STYLE_NP, activebackground=styles.BACKGROUND, activeforeground=styles.TEXT)                
         self.confirm_button = tk.Button(self, text="CONFIRM", command=lambda: self.cancel_type()
-        ,**styles.STYLE, activebackground=styles.BACKGROUND, activeforeground=styles.TEXT)        
+        ,**styles.STYLE_NP, activebackground=styles.BACKGROUND, activeforeground=styles.TEXT)        
 
         self.product_entry = tk.Entry(self)
         self.date_entry = tk.Entry(self)
@@ -66,9 +66,9 @@ class TypeInput(tk.Frame):
         self.manager.logger.info("User typed: " + str(product))
         if product != "":              
               self.label_product = tk.Label(self, text="Product: " + product).pack(**styles.PACK_TITLE)
-              self.confirm_button = tk.Button(self, text="Confirm", command=lambda:self.confirm_product(product, False), **styles.STYLE).pack(**styles.PACK_BUTTON)
-              self.say_again_button = tk.Button(self, text="Type again", command=self.start_typeInput, **styles.STYLE).pack(**styles.PACK_BUTTON_MINI_LEFT)
-              self.with_date_button = tk.Button(self, text="Add Expiry Date", command=lambda:self.confirm_product(product, True), **styles.STYLE).pack(**styles.PACK_BUTTON_MINI_RIGTH)
+              self.confirm_button = tk.Button(self, text="Confirm", command=lambda:self.confirm_product(product, False), **styles.STYLE_NP).pack(**styles.PACK_BUTTON)
+              self.say_again_button = tk.Button(self, text="Type again", command=self.start_typeInput, **styles.STYLE_NP).pack(**styles.PACK_BUTTON_MINI_LEFT)
+              self.with_date_button = tk.Button(self, text="Add Expiry Date", command=lambda:self.confirm_product(product, True), **styles.STYLE_NP).pack(**styles.PACK_BUTTON_MINI_RIGTH)
 
 
     def confirm_product(self, product_name, hasDate):

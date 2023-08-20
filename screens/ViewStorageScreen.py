@@ -10,7 +10,16 @@ class ViewStorageScreen(tk.Frame):
         self.configure(background = styles.BACKGROUND)
         self.init_widgets()
 
-    def init_widgets(self):      
+    def init_widgets(self):  
+        tk.Label(
+            self,
+            text = "STORAGE",
+            justify = tk.CENTER,
+            **styles.STYLE_TITLE_ST
+        ).pack(
+            **styles.PACK_TITLE
+        )
+
         ViewStorage(
             self,
             self.manager,            

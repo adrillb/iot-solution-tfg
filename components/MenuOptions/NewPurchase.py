@@ -19,7 +19,7 @@ class NewPurchase(tk.Frame):
             self,
             text = "VOICE INPUT PRODUCTS",
             command = lambda : self.manager.voice_input(), #Funionalidad
-            **styles.STYLE,
+            **styles.STYLE_NP,
             activebackground = styles.BACKGROUND,
             activeforeground = styles.TEXT            
         ).pack(
@@ -31,7 +31,7 @@ class NewPurchase(tk.Frame):
             self,
             text = "TYPE PRODUCTS",
             command = lambda : self.manager.type_input(), #Funionalidad
-            **styles.STYLE,
+            **styles.STYLE_NP,
             activebackground = styles.BACKGROUND,
             activeforeground = styles.TEXT            
         ).pack(
@@ -43,7 +43,7 @@ class NewPurchase(tk.Frame):
             self,
             text = "SCAN PRODUCT BARCODES",
             command = lambda : self.manager.scan_product(), #Funionalidad
-            **styles.STYLE,
+            **styles.STYLE_NP,
             activebackground = styles.BACKGROUND,
             activeforeground = styles.TEXT            
         ).pack(
@@ -55,7 +55,7 @@ class NewPurchase(tk.Frame):
             self,
             text = "FINISH",
             command = lambda : self.manager.show_frame(HomeScreen), #Funionalidad
-            **styles.STYLE,
+            **styles.STYLE_NP,
             activebackground = styles.BACKGROUND,
             activeforeground = styles.TEXT            
         ).pack(

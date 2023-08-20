@@ -28,14 +28,14 @@ class Manager(tk.Tk):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.title("IOT-SOLUTION")        
-        # self.attributes('-fullscreen', True)
+        self.attributes('-fullscreen', True)
         self.controller = Controller()
         self.dataBase = DataBase()
         self.alerts = Alerts(self)
         self.logger = self.setUpLogger()
      #    self.new_purchase = NewPurchase()
         self.container = tk.Frame(self)
-        self.container.pack(
+        self.container.pack(            
             side = tk.TOP,
             fill = tk.BOTH,
             expand = True
