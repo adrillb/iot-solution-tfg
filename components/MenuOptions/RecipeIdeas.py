@@ -17,7 +17,7 @@ class RecipeIdeas(tk.Frame):
         
         self.selected_productList = []             
         self.selected_productList_ListBox = tk.Listbox(self, **styles.STYLE_RI)
-        self.productList_ListBox = tk.Listbox(self, **styles.STYLE_RI)        
+        self.productList_ListBox = tk.Listbox(self, **styles.STYLE_RI, width=25)        
 
         self.selectProducts_button = tk.Button(self, text = "SELECT PRODUCTS", command = lambda : self.show_products()
                                         ,**styles.STYLE_RI, activebackground = styles.BACKGROUND, activeforeground = styles.TEXT)
@@ -98,9 +98,13 @@ class RecipeIdeas(tk.Frame):
     def show_recipes(self, recipes):
         self.hide_frame_widgets()
         message = "5 possible recipes with your products:\n" + recipes
-        self.label_recipes = tk.Label(self, text=message, **styles.STYLE_RI).pack()
         self.back_button.pack(**styles.PACK_BUTTON)
+        text_recipes = tk.Text(self, background="#363636", foreground="#FF8A33", font=("Trip Sans", 16))
+        text_recipes.pack()
+        text_recipes.insert(tk.END, message)
+        
 
     def hide_frame_widgets(self):
         for widget in self.winfo_children():
             widget.pack_forget()
+            widget.grid_forget()

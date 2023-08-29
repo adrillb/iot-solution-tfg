@@ -15,7 +15,7 @@ class ViewStorage(tk.Frame):
 
         self.product_ids = {}
         
-        self.productList = tk.Listbox(self, **styles.STYLE_ST)        
+        self.productList = tk.Listbox(self, **styles.STYLE_ST, width=40)        
 
         self.viewProducts_button = tk.Button(self, text = "VIEW PRODUCTS", command = lambda : self.show_products()
                                         ,**styles.STYLE_ST, activebackground = styles.BACKGROUND, activeforeground = styles.TEXT)
@@ -35,6 +35,7 @@ class ViewStorage(tk.Frame):
         self.init_widgets()
 
     def init_widgets(self):
+        self.productList.delete(0, tk.END)
         self.hide_frame_widgets()
         self.viewProducts_button.pack(**styles.PACK_BUTTON)
         self.clearData_button.pack(**styles.PACK_BUTTON)
