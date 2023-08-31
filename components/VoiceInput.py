@@ -2,7 +2,6 @@ import tkinter as tk
 import speech_recognition as sr
 import time
 
-from Controller import Controller
 from style import styles
 from tkinter import simpledialog
 from screens.HomeScreen import HomeScreen
