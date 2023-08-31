@@ -1,12 +1,6 @@
 import tkinter as tk
-import subprocess
-import requests
-import openai
 import logging
 
-# import datetime
-
-from Controller import Controller
 from screens.HomeScreen import HomeScreen
 from screens.NewPurchaseScreen import NewPurchaseScreen
 from screens.ViewStorageScreen import ViewStorageScreen
@@ -15,25 +9,19 @@ from screens.ScanInputScreen import ScanInputScreen
 from screens.TypeInputScreen import TypeInputScreen
 from screens.RecipeIdeasScreen import RecipeIdeasScreen
 from datetime import datetime
-#from components.VoiceInput import  as start_voiceInput
 from solutionAlerts.Alerts import Alerts
-from tkinter import messagebox
 from solutionDB.DataBase import DataBase
 from style import styles
-from PIL import Image
 
-from pyzbar.pyzbar import decode
 
 class Manager(tk.Tk):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.title("IOT-SOLUTION")        
         self.attributes('-fullscreen', True)
-        self.controller = Controller()
         self.dataBase = DataBase()
         self.alerts = Alerts(self)
         self.logger = self.setUpLogger()
-     #    self.new_purchase = NewPurchase()
         self.container = tk.Frame(self)
         self.container.pack(            
             side = tk.TOP,

@@ -1,7 +1,5 @@
-#ignore compiled python files
+#ignore compiled python files & automatic generated files
 *.pyc
-
-#ignore automatic generated files
 __pycache__/
 *.egg-info/
 dist/
