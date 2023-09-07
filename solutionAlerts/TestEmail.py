@@ -1,9 +1,13 @@
 from solutionAlerts.Alerts import Alerts
 from Manager import Manager
-import datetime
+import telegram
+import asyncio
 
-man = Manager()
-man.alerts.check_alerts()
+
+#asyncio.run(send("BOT TEST"))
+
+#man = Manager()
+# man.alerts.check_alerts()
 
 # man.send_email("Prueba", "Email de prueba")
 

@@ -1,8 +1,10 @@
 import smtplib
 import datetime
 import json
+import asyncio
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from solutionAlerts.TelegramBot import TelegramBot
 
 class Alerts:
     def __init__(self, manager):        
@@ -16,7 +18,8 @@ class Alerts:
         self.smtp_port = 587
 
     def send_email(self, subject, message):     
-
+        telegramBot = TelegramBot()
+        asyncio.run(telegramBot.send_message(message))
         try:
             with smtplib.SMTP(self.smtp_server, self.smtp_port) as server:
                 server.starttls()
@@ -31,8 +34,8 @@ class Alerts:
                     msg.attach(MIMEText(body, 'plain'))
                     server.sendmail(self.sender_email, email, msg.as_string())
                     print("Correo enviado a " + email +" whit Subject: " + subject + " and Body: " + body)       
-                    self.manager.loger.showinfo("Correo enviado a " + email +" whit Subject: " + subject + " and Body: " + body)                                    
-                        
+                    self.manager.loger.showinfo("Correo enviado a " + email +" whit Subject: " + subject + " and Body: " + body)  
+      
         except Exception as ex:
             self.manager.logger.showinfo("Error al enviar correo: " + ex)
             self.manager.logger.showinfo(ex)

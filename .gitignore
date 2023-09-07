@@ -15,11 +15,12 @@ build/
 app.log
 
 #ignore credentials
-#Email Log info
+#Email Log & TelegramBot info 
 userSettings.json
+userSettingsTelegram.json
 #DataBase access
 FirebaseCredentials/
 #chatGPT api key
-IARequest/API-KEY.json 	
+API-KEY.json 	
 #ignore specific file with commit instructions
 GitCommit

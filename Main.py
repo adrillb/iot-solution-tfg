@@ -7,7 +7,7 @@ if __name__ == "__main__":
     
     app.logger.info("Solution Starting ...")
 
-    # threading.Thread(target=app.alerts.check_alerts())
+    threading.Thread(target=app.alerts.check_alerts())
 
     app.mainloop()
     
