@@ -44,7 +44,9 @@ class Alerts:
 
     def check_alerts(self):
         print("check_alerts")
-        current_date = datetime.datetime.now().date()        
+        if self.alreadyAlerted():
+                return
+        current_date = datetime.datetime.now().date()
         data = self.manager.dataBase.read_products()
         alert = False
         if data:
@@ -65,10 +67,11 @@ class Alerts:
                             message += "\n\n\t- " + product_name + " expires tomorrow " + product_date + ". Don't let it go to waste!"                          
                         else:
                             message += "\n\n\t- " + product_name + " expires the day after tomorrow " + product_date + ". Don't let it go to waste!"                                                     
-            if alert:                                           
+            if alert:    
+                                                       
                 subject = "ALERT IN YOUR FRIDGE/PANTRY"
                 intro = "Important information about your stored products has been detected:\n"  
-                message += "\n\n\nThanks for using our services!\nHave a pleasant day,\nPapito dulse." 
+                message += "\n\n\nThanks for using our services!\nHave a pleasant day,\nYour fridge." 
                 body = intro + message
                 self.send_email(subject, body)
                 self.manager.logger.showinfo("Trying to send email alerts")                
@@ -80,6 +83,15 @@ class Alerts:
             message = "Alerts were detected for today: ["+current_date+"]"+"\n\n"+body
         self.send_email(subject, message)               
     
+    def alreadyAlerted(self):
+        currentDate = datetime.datetime.now().strftime("%d-%m-%Y")
+        lastDate = self.manager.dataBase.read_alertDate()
+        if lastDate == currentDate:
+            return True
+        self.manager.dataBase.modify_alertDate(currentDate)
+        return False
+            
+
     def getUserSettings(self): 
         with open('/home/adrillb/Desktop/TFG/Python/iot-solution/solutionAlerts/userSettings.json', 'r') as json_file:
             return json.load(json_file)
