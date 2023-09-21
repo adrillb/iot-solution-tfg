@@ -1,12 +1,13 @@
 import tkinter as tk
 import requests
-import time
+import libcamera
+import subprocess
 
 from style import styles
 from tkinter import simpledialog
 from screens.HomeScreen import HomeScreen
-
-
+from pyzbar.pyzbar import decode
+from PIL import Image
 class ScanInput(tk.Frame):
     def __init__(self, parent, manager):
         super().__init__(parent)
@@ -14,7 +15,6 @@ class ScanInput(tk.Frame):
         self.configure(background=styles.BACKGROUND)        
 
         self.productList = []
-
         self.start_scanning_button = tk.Button(self, text="SCAN PRODUCT", command=lambda: self.start_scanInput()
         ,**styles.STYLE_NP, activebackground=styles.BACKGROUND, activeforeground=styles.TEXT)
         self.finish_scanInput_button = tk.Button(self, text="FINISH", command=lambda: self.finish_scanInput()
@@ -40,115 +40,36 @@ class ScanInput(tk.Frame):
      self.label_scanning.pack(**styles.PACK_TITLE)     
      self.update()
      product = self.scan_product()
-     #self.show_result(product)
 
     def scan_product(self):
         self.manager.logger.info("Start Scanning product")
         barcode  = 0
-        # while True:
-
-
         
-        #productList = []
+        barcode = self.read_barcode(0)
 
-        # while 'Next product' until 'Finish'
-        # {
-        
+        product_name = self.get_product_name(barcode)
 
-        #  product_name = self.get_product_name(barcode)
-        #  print('Product_Name: ', product_name)
+        self.show_result(product_name)
 
-        #  #  bool registerEXP? 
-        #  #  {
-        #  expiry_date = self.get_expiry_date()
-        #  print('Expiry_Date: ', expiry_date)
-        #  # article.name = product_name
-        #  # article.expiry_date = expiry_date
-        #  #  }
-        #  # }
-        #  product = (product_name, expiry_date)
-
-        #  productList.append(product)
-        #  #_____________________________________________
-        #  #Insert Product on DDBB         
-        #  self.register_productList(productList)
-        #  self.show_product_succ_registered(product_name)
-
-        #___________________________________________________________________________________________________________
-        # audio = "x"
-        # while True:
-        #     with sr.Microphone() as source:
-        #         print("Listening")
-        #         self.recognizer.adjust_for_ambient_noise(source)
-        #         try:
-        #             audio = self.recognizer.listen(source, timeout=self.timeout)
-        #             print("processing...")
-        #         except sr.WaitTimeoutError:
-        #             print("TIMEOUT, be faster next time!")  
-        #             self.manager.logger.info("Timeout reached")  
-        #             tk.messagebox.showinfo("TryAgain", "Didn't get that, repeat please.")                
-        #     if audio != "x":
-        #         try:
-        #             print("GoogleRecognition...")
-        #             #Good Internet Connection
-        #             text = self.recognizer.recognize_google(audio, language='es-ES')          
-        #             #Poor Internet Connection
-        #             #text = self.recognizer.recognize_sphinx(audio, language='es-ES')
-        #             if text is not None:              
-        #                 break
-        #         except sr.UnknownValueError:
-        #             print("Didn't get that")
-        #             self.manager.logger.info("Did not recognize audio")
-        #             self.scan_product()
-        #         except sr.RequestError as e:
-        #             print("Error calling Google Search Speech Recognition; {0}".format(e))
-        #             self.manager.logger.info("Error calling Google Search Speech Recognition; {0}".format(e))
-        # return text  
-
-    def read_barcode(self):
-            print("He llegado a la funcion")
-            # ##############################################################################################################################
-            ###TOMAR FOTO Y LEER CODIGO DE BARRAS
-
-            # process = subprocess.Popen(['libcamera-still', '-f', '-t', '2000', '-o', 'barcode.png'])
-            # process.wait()
-            # with open('barcode.png', 'rb') as img:
-            #     barcodeImage = img.read()
-            # barcode = decode(barcodeImage)
-            # barcodeImg = Image.open("REAL")
-            # print(barcodeImg)
-                                 
-            # barcode = decode(Image.open("/home/adrillb/Downloads/barcode.png"))            
-             
-            # if len(barcode) != 0:
-            #     print("Tipo: ", barcode[0].type)
-            #     print("Data: ", barcode[0].data.decode())                       
-            #CON FOTO
+    def read_barcode(self, cont):
+            if(cont > 3):
+                return 0
+            barcode = 0
+            process = subprocess.Popen(['libcamera-still', '-f', '-t', '2000', '-o', 'barcode.png'])
+            process.wait()
+            image = Image.open('barcode.png')
+            result = decode(image)
+            if result:
+                barcode = result.data.decode("utf-8")
+            else:
+                cont += 1
+                barcode = self.read_barcode(cont)                     
             
-            # keepScanning = True
-            # cont = 0
-            # while keepScanning:        
-                
-            #       process = subprocess.Popen(['libcamera-still', '-f', '-t', '2000', '-o', 'barcode.png'])
-            #       process.wait()
-            #       with open('barcode.png', 'b') as img:
-            #            barcodeImage = img.read()
-            #       barcode = decode(Image.open(barcodeImage))                    
-
-            #       if len(barcode) != 0:
-            #            print("Tipo: ", barcode[0].type)
-            #            print("Data: ", barcode[0].data.decode('utf-8'))                       
-            #            keepScanning = False
-            #       if cont > 10:
-            #            keepScanning = False
-            #       cont += 1                                                                         
-            # print("SALÍ")  
-            barcodeNumber = "8480000154309"
-            print('Voy a salir def1 b:', barcodeNumber)
-            return barcodeNumber                 
+            self.manager.logger.info("Barcode scanned: ", barcode)
+            return barcode             
     
     def get_product_name(self, productId):  # Get product name by barcodeNumber [Using OpenFoodFacts API]
-         self.logger.info("OpenFoodApi request productId:"+productId)
+         self.manager.logger.info("OpenFoodApi request productId:"+productId)
          url = 'https://world.openfoodfacts.org/api/v0/product/' + productId + '.json'
          params = {'fields': 'product_name'}
          
@@ -157,26 +78,22 @@ class ScanInput(tk.Frame):
             if response.status_code == 200:
               data = response.json()
               product_name = data['product']['product_name']
-              self.logger.info('Product_name: ', product_name)
+              self.manager.logger.info('Product_name: ', product_name)
               ## Posible lógica de cambio de nombre que decida el usuario              
               return product_name
             else:
-                self.logger.info('OpenFoodFacts_API_request failed: ' + response.status_code)
+                self.manager.logger.info('OpenFoodFacts_API_request failed: ' + response.status_code)
                 return "fail"
          except Exception as ex: 
-            self.manager.logger.showinfo("")
-            self.manager.logger.showinfo(ex)
+            self.manager.logger.info(ex)
 
-
-    #____________________________________________________________________________________________________________
 
     def show_result(self, product):
-        self.manager.logger.info("Audio recognized: " + product)
         if product != "":
-              self.label_listening.pack_forget()
+              self.label_scanning.pack_forget()
               self.label_product = tk.Label(self, text="Product: " + product).pack(**styles.PACK_TITLE)
               self.confirm_button = tk.Button(self, text="Confirm", command=lambda:self.confirm_product(product, False), **styles.STYLE_NP).pack(**styles.PACK_BUTTON)
-              self.say_again_button = tk.Button(self, text="Say again", command=self.start_voiceInput, **styles.STYLE_NP).pack(**styles.PACK_BUTTON_MINI_LEFT)
+              self.say_again_button = tk.Button(self, text="Scan again", command=self.start_scanInput, **styles.STYLE_NP).pack(**styles.PACK_BUTTON_MINI_LEFT)
               self.with_date_button = tk.Button(self, text="Add Expiry Date", command=lambda:self.confirm_product(product, True), **styles.STYLE_NP).pack(**styles.PACK_BUTTON_MINI_RIGTH)
 
 
@@ -201,7 +118,7 @@ class ScanInput(tk.Frame):
         self.hide_frame_widgets()
         self.insert_date.pack(**styles.PACK_TITLE)
         while True:
-            date = simpledialog.askstring("Insert date", "Insert date(DD-MM-YYYY):")
+            date = simpledialog.askstring("Insert date", "Insert date(DD-MM-YYYY):", parent=self)
             if date is None:
                 return None
             if self.manager.isValid_date(date):

@@ -108,7 +108,7 @@ class VoiceInput(tk.Frame):
         self.hide_frame_widgets()
         self.insert_date.pack(**styles.PACK_TITLE)
         while True:
-            date = simpledialog.askstring("Insert date", "Insert date(DD-MM-YYYY):")
+            date = simpledialog.askstring("Insert date", "Insert date(DD-MM-YYYY):", parent=self)
             if date is None:
                 return None
             if self.manager.isValid_date(date):

@@ -17,9 +17,12 @@ class Alerts:
         self.smtp_server = "smtp-mail.outlook.com"
         self.smtp_port = 587
 
-    def send_email(self, subject, message):     
+    def send_telegramBot(self, intro, message):
+        full_msg = intro + message
         telegramBot = TelegramBot()
-        asyncio.run(telegramBot.send_message(message))
+        asyncio.run(telegramBot.send_message(full_msg))
+
+    def send_email(self, subject, message):             
         try:
             with smtplib.SMTP(self.smtp_server, self.smtp_port) as server:
                 server.starttls()
@@ -34,11 +37,11 @@ class Alerts:
                     msg.attach(MIMEText(body, 'plain'))
                     server.sendmail(self.sender_email, email, msg.as_string())
                     print("Correo enviado a " + email +" whit Subject: " + subject + " and Body: " + body)       
-                    self.manager.loger.showinfo("Correo enviado a " + email +" whit Subject: " + subject + " and Body: " + body)  
+                    self.manager.logger.showinfo("Correo enviado a " + email +" whit Subject: " + subject + " and Body: " + body)  
       
         except Exception as ex:
-            self.manager.logger.showinfo("Error al enviar correo: " + ex)
-            self.manager.logger.showinfo(ex)
+            #self.manager.logger.showinfo("Error al enviar correo: " + ex)
+            #self.manager.logger.showinfo(ex)
             print("Error al enviar correo: ")
             print(ex)
 
@@ -67,21 +70,21 @@ class Alerts:
                             message += "\n\n\t- " + product_name + " expires tomorrow " + product_date + ". Don't let it go to waste!"                          
                         else:
                             message += "\n\n\t- " + product_name + " expires the day after tomorrow " + product_date + ". Don't let it go to waste!"                                                     
-            if alert:    
-                                                       
-                subject = "ALERT IN YOUR FRIDGE/PANTRY"
+            if alert:
                 intro = "Important information about your stored products has been detected:\n"  
-                message += "\n\n\nThanks for using our services!\nHave a pleasant day,\nYour fridge." 
+                message += "\n\n\nThanks for using our services!\nHave a pleasant day,\nYour fridge."     
+                self.send_telegramBot(intro, message)                                       
+                subject = "ALERT IN YOUR FRIDGE/PANTRY"
                 body = intro + message
                 self.send_email(subject, body)
-                self.manager.logger.showinfo("Trying to send email alerts")                
+                self.manager.logger.info("Trying to send email alerts")                
         
         #Confirm this method has been executed
-        subject = "Checked Alerts"
-        message = "No alerts were detected for today. "+current_date
-        if alert:
-            message = "Alerts were detected for today: ["+current_date+"]"+"\n\n"+body
-        self.send_email(subject, message)               
+        # subject = "Checked Alerts"
+        # message = "No alerts were detected for today. "+current_date
+        # if alert:
+        #     message = "Alerts were detected for today: ["+current_date+"]"+"\n\n"+body
+        # self.send_email(subject, message)               
     
     def alreadyAlerted(self):
         currentDate = datetime.datetime.now().strftime("%d-%m-%Y")
